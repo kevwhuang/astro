@@ -1,14 +1,22 @@
 {
-  "name": "astro",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "astro": "^5.1.7"
-  }
+    "name": "astro",
+    "version": "25.1.18",
+    "author": "Kevin Huang",
+    "scripts": {
+        "build": "astro build",
+        "lint": "bun tsc & bun eslint",
+        "start": "astro dev"
+    },
+    "dependencies": {
+        "astro": "latest"
+    },
+    "devDependencies": {
+        "@aephonics/config": "latest",
+        "@testing-library/jest-dom": "latest",
+        "@testing-library/react": "latest",
+        "@types/bun": "latest",
+        "@types/react": "latest",
+        "eslint": "latest",
+        "typescript": "latest"
+    }
 }
