@@ -12,6 +12,7 @@
         "react": "latest"
     },
     "devDependencies": {
-        "@aephonics/config": "latest"
+        "@aephonics/config": "latest",
+        "@astrojs/sitemap": "latest"
     }
 }
