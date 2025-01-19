@@ -8,15 +8,10 @@
         "start": "astro dev"
     },
     "dependencies": {
-        "astro": "latest"
+        "astro": "latest",
+        "react": "latest"
     },
     "devDependencies": {
-        "@aephonics/config": "latest",
-        "@testing-library/jest-dom": "latest",
-        "@testing-library/react": "latest",
-        "@types/bun": "latest",
-        "@types/react": "latest",
-        "eslint": "latest",
-        "typescript": "latest"
+        "@aephonics/config": "latest"
     }
 }

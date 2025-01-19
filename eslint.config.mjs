@@ -1,23 +1,22 @@
 import { eslint } from '@aephonics/config';
 
-const ignores = [
-    '.astro/**',
-    'dist/**',
-];
-
-const globals = [
-    '',
-];
-
 const overrides = [
     {
-        files: [''],
-        rules: {},
+        files: ['**/*.{ts,tsx,astro}'],
+        languageOptions: {
+            globals: {
+                MyType: true,
+            },
+        },
     },
 ];
 
-ignores.forEach(e => eslint[0].ignores.push(e));
-globals.forEach(e => (eslint[0].languageOptions.globals[e] = true));
-overrides.forEach(e => eslint.push(e));
+const ignores = [
+    '.astro/**',
+    '.dist/**',
+];
+
+eslint.push(...overrides);
+eslint.forEach(e => (e.ignores = ignores));
 
 export default eslint;
