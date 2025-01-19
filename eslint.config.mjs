@@ -13,7 +13,9 @@ const overrides = [
 
 const ignores = [
     '.astro/**',
-    '.dist/**',
+    '.netlify/**',
+    'dist/**',
+    'functions/**',
 ];
 
 eslint.push(...overrides);

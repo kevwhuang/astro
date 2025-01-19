@@ -1,18 +1,22 @@
 {
     "name": "astro",
-    "version": "25.1.18",
+    "version": "25.1.19",
     "author": "Kevin Huang",
     "scripts": {
         "build": "astro build",
+        "dev": "astro dev",
         "lint": "bun tsc & bun eslint",
-        "start": "astro dev"
+        "start": "ntl dev"
     },
     "dependencies": {
+        "@astrojs/react": "latest",
         "astro": "latest",
-        "react": "latest"
+        "react": "latest",
+        "react-dom": "latest"
     },
     "devDependencies": {
         "@aephonics/config": "latest",
+        "@astrojs/netlify": "latest",
         "@astrojs/sitemap": "latest"
     }
 }

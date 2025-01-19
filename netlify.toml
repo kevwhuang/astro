@@ -1,10 +1,11 @@
 [build]
 command = 'bun run build'
+functions = 'functions'
 publish = 'dist'
 
 [dev]
-port = 4000
-targetPort = 3000
+port = 5000
+targetPort = 4321
 
 [[headers]]
 for = '/*'
@@ -12,7 +13,7 @@ for = '/*'
 Access-Control-Allow-Origin = '*'
 Referrer-Policy = 'same-origin'
 X-Content-Type-Options = 'nosniff'
-X-Frame-Options = 'SAMEORIGIN'
+X-Frame-Options = 'sameorigin'
 
 [[headers]]
 for = '/public/*'
