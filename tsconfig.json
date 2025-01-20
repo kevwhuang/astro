@@ -89,13 +89,16 @@
             "scripthost",
             "webworker",
         ],
-        "types": [
-            "bun-types",
-        ],
         "paths": {
+            "@/*": [
+                "src/*",
+            ],
             "react": [
                 "node_modules/@types/react",
             ],
         },
+        "types": [
+            "bun-types",
+        ],
     },
 }

@@ -1,0 +1,44 @@
+<div class="hamburger">
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+</div>
+
+<style lang="scss">
+    @use '@/styles/_root.scss' as *;
+
+    .hamburger {
+        cursor: pointer;
+        display: none;
+        margin: auto;
+
+        &:hover {
+            .line {
+                width: calc($f5 + 10px);
+            }
+        }
+    }
+
+    .line {
+        background: $c4;
+        display: block;
+        height: calc($f1 / 2);
+        margin: $f1 0;
+        transition: width 200ms;
+        width: $f5;
+    }
+
+    @media screen and (max-width: 768px) {
+        .hamburger {
+            display: block;
+        }
+    }
+</style>
+
+<script>
+    document.querySelector('.hamburger')?.addEventListener('click', () => {
+        for (const e of document.querySelectorAll('nav .menu .menu__button')) {
+            e.classList.toggle('open');
+        }
+    });
+</script>

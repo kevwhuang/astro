@@ -1,9 +1,19 @@
 ---
-import Display from '../layouts/Display.astro';
+import Main from '@/layouts/Main.astro';
 ---
 
-<Display title="Home">
-    <main id="home">
-        <h1>Hello World</h1>
+<Main description="Welcome to my first Astro website!" title="Home">
+    <main>
+        <h1 class="header">Hello Astro</h1>
     </main>
-</Display>
+</Main>
+
+<style lang="scss">
+    @use '@/styles/_root.scss' as *;
+
+    .header {
+        color: $c3;
+        padding: $f2;
+        text-align: center;
+    }
+</style>

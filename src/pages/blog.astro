@@ -1,5 +1,7 @@
 ---
-import Display from '../layouts/Display.astro';
+import Display from '@/layouts/Main.astro';
+
+const posts = Object.values(import.meta.glob('./blog/*.md', { eager: true }));
 ---
 
 <Display title="Blog">
@@ -8,17 +10,13 @@ import Display from '../layouts/Display.astro';
         <p>This is where I will post about my journey learning Astro.</p>
 
         <ul>
-            <li>
-                <a href="/blog/post-1">Post 1</a>
-            </li>
-
-            <li>
-                <a href="/blog/post-2">Post 2</a>
-            </li>
-
-            <li>
-                <a href="/blog/post-3">Post 3</a>
-            </li>
+            {
+                posts.map((e: any) => (
+                    <li>
+                        <a href={e.url}>{e.frontmatter.title}</a>
+                    </li>
+                ))
+            }
         </ul>
     </main>
 </Display>

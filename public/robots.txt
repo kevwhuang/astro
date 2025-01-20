@@ -1,4 +1,4 @@
-User-agent: *
 Allow: /
-Disallow: 
+Disallow:
 Sitemap: https://k-astro.netlify.app/sitemap.xml
+User-agent: *

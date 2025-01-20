@@ -1,10 +1,10 @@
 ---
-import Display from '../layouts/Display.astro';
-import Form from '../components/Form';
+import Form from '@/components/react/Form';
+import Main from '@/layouts/Main.astro';
 ---
 
-<Display title="React">
-    <main id="react">
+<Main description="Demo of reactivity with fetching." title="React">
+    <main>
         <Form client:load />
     </main>
-</Display>
+</Main>

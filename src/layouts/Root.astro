@@ -1,10 +1,7 @@
 ---
-import Footer from '../modules/Footer.astro';
-import Navbar from '../modules/Navbar.astro';
+import Navbar from '../modules/astro/Navbar.astro';
 
-import '../styles/main.css';
-
-const { title } = Astro.props;
+const { description, title } = Astro.props;
 ---
 
 <!doctype html>
@@ -14,20 +11,18 @@ const { title } = Astro.props;
         <meta charset="UTF-8" />
         <meta content="IE=edge" http-equiv="X-UA-Compatible" />
         <meta content="Kevin Huang" name="author" />
-        <meta content="Astro demo" name="description" />
+        <meta content={description} name="description" />
         <meta content="index, follow" name="robots" />
-        <meta content="#000000" name="theme-color" />
+        <meta content="white" name="theme-color" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <link href="/favicon.svg" rel="icon" type="image/x-icon" />
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+        <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
     </head>
 
     <body>
         <Navbar />
         <slot />
-        <Footer />
     </body>
 </html>
-
-<script>
-    import '../functions/main.ts';
-</script>

@@ -1,0 +1,11 @@
+---
+import Footer from '@/modules/astro/Footer.astro';
+import Root from '@/layouts/Root.astro';
+
+const { description, title } = Astro.props;
+---
+
+<Root description={description} title={title}>
+    <slot />
+    <Footer />
+</Root>

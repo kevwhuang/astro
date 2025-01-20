@@ -5,9 +5,10 @@ const overrides = [
         files: ['**/*.{ts,tsx,astro}'],
         languageOptions: {
             globals: {
-                MyType: true,
+                Submission: true,
             },
         },
+        rules: {},
     },
 ];
 
@@ -15,7 +16,6 @@ const ignores = [
     '.astro/**',
     '.netlify/**',
     'dist/**',
-    'functions/**',
 ];
 
 eslint.push(...overrides);

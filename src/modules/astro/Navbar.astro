@@ -1,0 +1,60 @@
+---
+import Hamburger from '@/components/astro/Hamburger.astro';
+---
+
+<nav>
+    <Hamburger />
+
+    <div class="menu">
+        <a class="menu__button" href="/">Home</a>
+        <a class="menu__button" href="/about">About</a>
+        <a class="menu__button" href="/blog">Blog</a>
+        <a class="menu__button" href="/tags">Tags</a>
+        <a class="menu__button" href="/react">React</a>
+    </div>
+</nav>
+
+<style lang="scss">
+    @use '@/styles/_root.scss' as *;
+
+    nav {
+        background: $c2;
+        display: flex;
+        flex-direction: column;
+        padding: $f1;
+    }
+
+    .menu {
+        display: flex;
+        font-size: $f4;
+        gap: $f3;
+        justify-content: center;
+        text-align: center;
+
+        &__button {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .menu {
+            flex-direction: column;
+            gap: 0;
+
+            &__button {
+                display: none;
+
+                &:hover {
+                    font-weight: bold;
+                    text-decoration: none;
+                }
+
+                &.open {
+                    display: block;
+                }
+            }
+        }
+    }
+</style>

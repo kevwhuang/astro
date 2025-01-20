@@ -1,0 +1,21 @@
+---
+import Social from '@/components/astro/Social.astro';
+---
+
+<footer>
+    <Social domain="github" handle="withastro" />
+    <Social domain="youtube" handle="astrodotbuild" />
+    <Social domain="twitter" handle="astrodotbuild" />
+</footer>
+
+<style lang="scss">
+    @use '@/styles/_root.scss' as *;
+
+    footer {
+        background: $c2;
+        display: flex;
+        gap: $f1;
+        justify-content: end;
+        padding: $f1;
+    }
+</style>
