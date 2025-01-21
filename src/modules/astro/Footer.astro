@@ -9,13 +9,17 @@ import Social from '@/components/astro/Social.astro';
 </footer>
 
 <style lang="scss">
-    @use '@/styles/_root.scss' as *;
-
     footer {
-        background: $c2;
+        border-top: 2px solid;
         display: flex;
-        gap: $f1;
+        gap: var(--f7);
         justify-content: end;
-        padding: $f1;
+        padding: var(--f7);
+    }
+
+    @media screen and (max-width: 480px) {
+        footer {
+            justify-content: center;
+        }
     }
 </style>

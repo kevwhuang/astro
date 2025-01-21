@@ -5,33 +5,31 @@ import Hamburger from '@/components/astro/Hamburger.astro';
 <nav>
     <Hamburger />
 
-    <div class="menu">
-        <a class="menu__button" href="/">Home</a>
-        <a class="menu__button" href="/about">About</a>
-        <a class="menu__button" href="/blog">Blog</a>
-        <a class="menu__button" href="/tags">Tags</a>
-        <a class="menu__button" href="/react">React</a>
-    </div>
+    <section>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/blog">Blog</a>
+        <a href="/tags">Tags</a>
+        <a href="/react">React</a>
+    </section>
 </nav>
 
 <style lang="scss">
-    @use '@/styles/_root.scss' as *;
-
     nav {
-        background: $c2;
+        border-bottom: 2px solid;
         display: flex;
         flex-direction: column;
-        padding: $f1;
+        padding: var(--f7);
     }
 
-    .menu {
+    section {
         display: flex;
-        font-size: $f4;
-        gap: $f3;
+        gap: var(--f7);
         justify-content: center;
-        text-align: center;
 
-        &__button {
+        a {
+            font-size: var(--f6);
+
             &:hover {
                 text-decoration: underline;
             }
@@ -39,20 +37,22 @@ import Hamburger from '@/components/astro/Hamburger.astro';
     }
 
     @media screen and (max-width: 768px) {
-        .menu {
+        section {
             flex-direction: column;
             gap: 0;
 
-            &__button {
+            a {
                 display: none;
+                padding: var(--f9);
+                text-align: center;
+
+                &.open {
+                    display: inline;
+                }
 
                 &:hover {
                     font-weight: bold;
                     text-decoration: none;
-                }
-
-                &.open {
-                    display: block;
                 }
             }
         }

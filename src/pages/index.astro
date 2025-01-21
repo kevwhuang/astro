@@ -4,16 +4,26 @@ import Main from '@/layouts/Main.astro';
 
 <Main description="Welcome to my first Astro website!" title="Home">
     <main>
-        <h1 class="header">Hello Astro</h1>
+        <h1>Hello Astro</h1>
     </main>
 </Main>
 
 <style lang="scss">
-    @use '@/styles/_root.scss' as *;
-
-    .header {
-        color: $c3;
-        padding: $f2;
+    h1 {
+        color: var(--c2);
+        padding: var(--f7);
         text-align: center;
+    }
+
+    @media screen and (max-width: 768px) {
+        h1 {
+            font-size: var(--f2);
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        h1 {
+            font-size: var(--f3);
+        }
     }
 </style>

@@ -1,58 +1,65 @@
-@use '../../../styles/_root';
-
 .form {
-    padding: 0 40px;
+    padding: var(--f5);
 
-    &__main {
+    form {
         align-items: center;
         display: grid;
-        gap: 15px;
+        gap: var(--f7);
         grid-template-columns: auto 1fr;
-        margin: 40px 0;
+        margin-bottom: var(--f5);
 
         label {
-            font-size: 30px;
+            color: var(--c3);
+            font-size: var(--f5);
         }
 
         input {
-            border-radius: 5px;
-            font-size: 30px;
-            padding: 5px 10px;
-            width: 100%;
-        }
-    }
+            border-radius: var(--f8);
+            font-size: var(--f6);
+            padding: var(--f8) var(--f7);
 
-    &__results {
-        font-size: 20px;
-        margin-bottom: 40px;
-
-        div {
-            margin-bottom: 20px;
-
-            h3 {
-                color: peru;
-            }
-
-            p {
-                padding: 5px 0;
-
-                &:nth-of-type(1) {
-                    font-weight: bold;
-                }
-
-                &:nth-of-type(3) {
-                    font-style: italic;
-                }
+            &:focus {
+                border-color: var(--c3);
             }
         }
     }
 
-    @media screen and (max-width: 480px) {
-        &__main {
+    div {
+        margin-bottom: var(--f6);
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+
+        h4 {
+            color: var(--c5);
+        }
+
+        p {
+            font-weight: bold;
+        }
+
+        a {
+            color: var(--c4);
             display: block;
+            font-style: italic;
+            line-height: 1.5;
+            width: fit-content;
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .form {
+        form {
+            grid-template-columns: auto;
 
             label {
                 display: none;
+            }
+
+            input {
+                width: 100%;
             }
         }
     }

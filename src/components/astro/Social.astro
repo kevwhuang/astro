@@ -2,22 +2,10 @@
 const { domain, handle } = Astro.props;
 ---
 
-<a class="social" href={`https://${domain}.com/${handle}`} target="_blank">
-    {domain.toUpperCase()}
-</a>
+<a href={`https://${domain}.com/${handle}`} target="_blank">{domain}</a>
 
 <style lang="scss">
-    @use '@/styles/_root.scss' as *;
-
-    .social {
-        color: $c6;
-
-        &:visited {
-            color: $c6;
-        }
-
-        &:hover {
-            color: $c5;
-        }
+    a {
+        text-transform: uppercase;
     }
 </style>

@@ -1,5 +1,13 @@
 * {
     box-sizing: border-box;
+
+    &::after {
+        box-sizing: border-box;
+    }
+
+    &::before {
+        box-sizing: border-box;
+    }
 }
 
 a {
@@ -8,6 +16,10 @@ a {
     text-decoration: none;
 
     &:visited {
+        color: black;
+    }
+
+    &:hover {
         color: black;
     }
 }
@@ -88,6 +100,7 @@ button {
     font: initial;
     font-family: inherit;
     letter-spacing: normal;
+    line-height: 1.1;
     margin: 0;
     padding: 0;
     text-align: initial;
@@ -233,6 +246,7 @@ h1 {
     display: block;
     font-size: 1rem;
     font-weight: bold;
+    line-height: 1.1;
     margin-block: 0;
     margin-inline: 0;
 }
@@ -241,6 +255,7 @@ h2 {
     display: block;
     font-size: 1rem;
     font-weight: bold;
+    line-height: 1.1;
     margin-block: 0;
     margin-inline: 0;
 }
@@ -249,6 +264,7 @@ h3 {
     display: block;
     font-size: 1rem;
     font-weight: bold;
+    line-height: 1.1;
     margin-block: 0;
     margin-inline: 0;
 }
@@ -257,6 +273,7 @@ h4 {
     display: block;
     font-size: 1rem;
     font-weight: bold;
+    line-height: 1.1;
     margin-block: 0;
     margin-inline: 0;
 }
@@ -265,6 +282,7 @@ h5 {
     display: block;
     font-size: 1rem;
     font-weight: bold;
+    line-height: 1.1;
     margin-block: 0;
     margin-inline: 0;
 }
@@ -273,6 +291,7 @@ h6 {
     display: block;
     font-size: 1rem;
     font-weight: bold;
+    line-height: 1.1;
     margin-block: 0;
     margin-inline: 0;
 }
@@ -304,6 +323,9 @@ html {
     display: block;
     font-family: Arial, sans-serif;
     font-synthesis: weight style;
+    line-height: 1.5;
+    margin: auto;
+    max-width: 2560px;
     scroll-behavior: smooth;
     text-rendering: optimizeLegibility;
 }
@@ -339,7 +361,9 @@ input {
     font: initial;
     font-family: inherit;
     letter-spacing: normal;
+    line-height: 1.1;
     margin: 0;
+    outline: none;
     padding: 0;
     text-align: initial;
     text-indent: 0;
@@ -363,6 +387,7 @@ kbd {
 label {
     cursor: pointer;
     display: inline;
+    line-height: 1.1;
 }
 
 legend {
@@ -476,7 +501,9 @@ param {
 }
 
 picture {
-    display: inline-block;
+    display: block;
+    max-width: 100%;
+    user-select: none;
 }
 
 pre {
@@ -670,6 +697,7 @@ textarea {
     font-family: inherit;
     letter-spacing: normal;
     margin: 0;
+    outline: none;
     overflow-wrap: break-word;
     padding: 0;
     resize: none;

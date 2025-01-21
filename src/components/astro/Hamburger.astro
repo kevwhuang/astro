@@ -1,35 +1,33 @@
-<div class="hamburger">
-    <span class="line"></span>
-    <span class="line"></span>
-    <span class="line"></span>
-</div>
+<section class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+</section>
 
 <style lang="scss">
-    @use '@/styles/_root.scss' as *;
-
-    .hamburger {
+    section {
         cursor: pointer;
         display: none;
-        margin: auto;
+        width: fit-content;
 
         &:hover {
-            .line {
-                width: calc($f5 + 10px);
+            span {
+                width: calc(var(--f5) + 10px);
             }
         }
     }
 
-    .line {
-        background: $c4;
+    span {
+        background: var(--c3);
         display: block;
-        height: calc($f1 / 2);
-        margin: $f1 0;
+        height: var(--f9);
+        margin: var(--f9);
         transition: width 200ms;
-        width: $f5;
+        width: var(--f5);
     }
 
     @media screen and (max-width: 768px) {
-        .hamburger {
+        section {
             display: block;
         }
     }
@@ -37,7 +35,7 @@
 
 <script>
     document.querySelector('.hamburger')?.addEventListener('click', () => {
-        for (const e of document.querySelectorAll('nav .menu .menu__button')) {
+        for (const e of document.querySelectorAll('nav section a')) {
             e.classList.toggle('open');
         }
     });
