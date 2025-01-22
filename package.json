@@ -1,6 +1,6 @@
 {
     "name": "astro",
-    "version": "25.1.21",
+    "version": "25.1.22",
     "author": "Kevin Huang",
     "scripts": {
         "build": "astro build",
@@ -17,6 +17,7 @@
         "@astrojs/netlify": "latest",
         "@astrojs/react": "latest",
         "@astrojs/sitemap": "latest",
+        "@sentry/astro": "latest",
         "astro-compressor": "latest",
         "astro-robots-txt": "latest",
         "sass": "latest"

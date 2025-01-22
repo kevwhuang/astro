@@ -162,11 +162,11 @@ del {
 details {
     display: block;
 
-    &>summary {
+    & > summary {
         list-style: disclosure-closed inside;
     }
 
-    &[open]>summary {
+    &[open] > summary {
         list-style: disclosure-open inside;
     }
 }
@@ -318,7 +318,6 @@ hr {
 }
 
 html {
-    -webkit-font-smoothing: antialiased;
     color: black;
     display: block;
     font-family: Arial, sans-serif;
@@ -351,7 +350,6 @@ img {
 }
 
 input {
-    -webkit-rtl-ordering: initial;
     appearance: auto;
     background: none;
     border: 1px solid;
@@ -571,7 +569,6 @@ section {
 }
 
 select {
-    -webkit-rtl-ordering: initial;
     align-items: initial;
     appearance: auto;
     background: none;
@@ -685,7 +682,6 @@ template {
 }
 
 textarea {
-    -webkit-rtl-ordering: initial;
     appearance: auto;
     background: none;
     border: 1px solid;
