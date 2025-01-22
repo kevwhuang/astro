@@ -1,6 +1,6 @@
 [build]
 command = 'bun run build'
-functions = 'functions'
+functions = '/netlify/functions'
 publish = 'dist'
 
 [dev]
@@ -19,3 +19,9 @@ X-Frame-Options = 'sameorigin'
 for = '/manifest.webmanifest'
 [headers.values]
 Content-Type = 'application/manifest+json'
+
+[[redirects]]
+force = true
+from = '/home'
+status = 200
+to = '/'

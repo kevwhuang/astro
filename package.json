@@ -17,6 +17,7 @@
         "@astrojs/netlify": "latest",
         "@astrojs/react": "latest",
         "@astrojs/sitemap": "latest",
+        "@netlify/edge-functions": "latest",
         "@sentry/astro": "latest",
         "astro-compressor": "latest",
         "astro-robots-txt": "latest",
