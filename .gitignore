@@ -1,4 +1,5 @@
-**/.DS_Store
+*.ds_store
+*.pem
 .astro/
 .env
 .netlify/

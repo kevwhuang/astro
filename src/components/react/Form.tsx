@@ -39,18 +39,18 @@ function Form(): React.ReactElement {
         e.preventDefault();
         const payload = input;
         inputRef.current!.value = '';
+        setInput('');
         await load(payload, setSubmissions);
     }
 
     return (
         <section className="form">
             <form onSubmit={e => handleSubmit(e) as unknown}>
-                <label htmlFor="input-submission">Link</label>
+                <input aria-label="submit" type="submit" value="&#x2705;" />
 
                 <input
                     ref={inputRef}
                     aria-label="submission link"
-                    id="input-submission"
                     maxLength={200}
                     onChange={e => setInput(e.target.value)}
                 />

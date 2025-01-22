@@ -2,9 +2,9 @@ import type { Config, Context } from '@netlify/edge-functions';
 import React from 'https://esm.sh/react';
 import { renderToReadableStream } from 'https://esm.sh/react-dom/server';
 
-export const config: Config = { path: '/status' };
+const config: Config = { path: '/geo' };
 
-export default async function (res: Response, context: Context): Promise<Response> {
+async function handler(res: Response, context: Context): Promise<Response> {
     if (!React) return new Response;
 
     const { geo } = context;
@@ -13,6 +13,7 @@ export default async function (res: Response, context: Context): Promise<Respons
         <html lang="en-us">
             <body>
                 <title>Geo</title>
+                <a href="/">Home</a>
                 <p>{geo.latitude}, {geo.longitude}</p>
                 <p>{geo.city}, {geo.subdivision?.name}, {geo.country?.name}</p>
             </body>
@@ -24,3 +25,6 @@ export default async function (res: Response, context: Context): Promise<Respons
         status: 200,
     });
 }
+
+export default handler;
+export { config };
