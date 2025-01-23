@@ -5,6 +5,7 @@
     "scripts": {
         "build": "astro build",
         "dev": "astro dev",
+        "gen": "bunx @vite-pwa/assets-generator --preset minimal-2023 public/favicon.svg",
         "lint": "bun tsc & bun eslint",
         "start": "ntl dev"
     },

@@ -14,14 +14,24 @@ const { description, title } = Astro.props;
     <head>
         <title>{title}</title>
         <meta charset="utf-8" />
-        <meta content="ie=edge" http-equiv="x-ua-compatible" />
+        <meta content="#fdf0d5" name="theme-color" />
         <meta content="Kevin Huang" name="author" />
+        <meta content="ie=edge" http-equiv="x-ua-compatible" />
+        <meta content="index,follow" name="robots" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
         <meta content={description} name="description" />
-        <meta content="index, follow" name="robots" />
-        <meta content="white" name="theme-color" />
-        <meta content="width=device-width, initial-scale=1" name="viewport" />
-        <link href="/favicon.svg" rel="icon" type="image/x-icon" />
-        <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+
+        <link
+            as="style"
+            href="https://fonts.cdnfonts.com/css/sf-pro-display"
+            onload="this.onload=null;this.rel='stylesheet'"
+            rel="preload"
+        />
+
+        <link href="/apple-touch-icon-180x180.png" rel="apple-touch-icon" />
+        <link href="/favicon.ico" rel="icon" sizes="48x48" />
+        <link href="/favicon.svg" rel="icon" sizes="any" type="image/svg+xml" />
+        <link href="/manifest.webmanifest" rel="manifest" />
     </head>
 
     <body>

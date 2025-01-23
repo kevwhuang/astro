@@ -1,6 +1,6 @@
 [build]
 command = 'bun run build'
-functions = '/netlify/functions'
+functions = 'netlify/functions'
 publish = 'dist'
 [build.processing.html]
 pretty_urls = true

@@ -11,10 +11,38 @@ import ssl from '@vitejs/plugin-basic-ssl';
 
 const env = loadEnv('production', process.cwd(), '');
 
+const manifest = {
+    background_color: '#fdf0d5',
+    description: 'Welcome to my first Astro website.',
+    display: 'standalone',
+    icons: [
+        {
+            purpose: 'any',
+            sizes: '192x192',
+            src: '/pwa-192x192.png',
+            type: 'image/png',
+        }, {
+            purpose: 'any',
+            sizes: '512x512',
+            src: '/pwa-512x512.png',
+            type: 'image/png',
+        }, {
+            purpose: 'maskable',
+            sizes: '512x512',
+            src: '/pwa-maskable-512x512.png',
+            type: 'image/png',
+        },
+    ],
+    name: 'Astro',
+    orientation: 'any',
+    short_name: 'Astro',
+    theme_color: '#fdf0d5',
+};
+
 const astro = defineConfig({
     adapter: netlify({ cacheOnDemandPages: true }),
     integrations: [
-        ssl({}),
+        ssl(),
         react({ include: ['**/*.tsx'] }),
         sentry({
             dsn: env.SENTRY_DSN,
@@ -24,10 +52,14 @@ const astro = defineConfig({
                 telemetry: false,
             },
         }),
-        robots({}),
+        robots(),
         sitemap({ lastmod: new Date }),
-        pwa({ manifest: { theme_color: 'white' } }),
-        compression({}),
+        pwa({
+            includeAssets: ['apple-touch-icon-180x180.png', 'favicon.ico', 'favicon.svg'],
+            manifest,
+            registerType: 'autoUpdate',
+        }),
+        compression(),
     ],
     output: 'server',
     site: 'https://k-astro.netlify.app',
