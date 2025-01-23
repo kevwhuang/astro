@@ -1,7 +1,7 @@
 *.ds_store
-*.pem
 .astro/
 .env
 .netlify/
+certs/
 dist/
 node_modules/

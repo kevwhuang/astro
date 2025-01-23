@@ -1,0 +1,19 @@
+@mixin h1 {
+    h1 {
+        color: var(--c2);
+        padding: var(--f7);
+        text-align: center;
+    }
+
+    @media screen and (max-width: 768px) {
+        h1 {
+            font-size: var(--f2);
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        h1 {
+            font-size: var(--f3);
+        }
+    }
+}

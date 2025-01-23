@@ -14,8 +14,8 @@ port = 5000
 publish = 'dist'
 targetPort = 4321
 [dev.https]
-certFile = 'cert.pem'
-keyFile = 'key.pem'
+certFile = 'certs/cert.pem'
+keyFile = 'certs/key.pem'
 
 [[headers]]
 for = '/*'
@@ -31,6 +31,7 @@ for = '/manifest.webmanifest'
 content-type = 'application/manifest+json'
 
 [[redirects]]
-from = '/*'
+force = true
+from = '/home'
 status = 200
 to = '/'
