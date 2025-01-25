@@ -1,0 +1,50 @@
+---
+import Main from '@/layouts/Main.astro';
+
+export const prerender = true;
+
+export function getStaticPaths() {
+    const posts = Object.values(import.meta.glob('./*.md', { eager: true }));
+    const tags = [...new Set(posts.map((e: any) => e.frontmatter.tags).flat())];
+
+    return tags.map(e => ({
+        params: { tag: e },
+        props: { posts: posts.filter((f: any) => f.frontmatter.tags.includes(e)) },
+    }));
+}
+
+const [{ tag }, { posts }] = [Astro.params, Astro.props];
+---
+
+<Main description={`Posts tagged with "${tag}".`} title={`${tag} | Blog`}>
+    <main>
+        <section>
+            <h4>{tag.toUpperCase()}</h4>
+
+            {
+                posts.map((e: any) => (
+                    <a href={e.url}>
+                        {e.frontmatter.title} [{e.frontmatter.author}]
+                    </a>
+                ))
+            }
+        </section>
+    </main>
+</Main>
+
+<style lang="scss">
+    section {
+        display: flex;
+        flex-direction: column;
+        gap: var(--f8);
+
+        h4 {
+            color: var(--c2);
+        }
+
+        a {
+            font-size: var(--f6);
+            width: fit-content;
+        }
+    }
+</style>

@@ -1,0 +1,13 @@
+---
+import Root from '@/layouts/_Root.astro';
+
+const { description, title } = Astro.props;
+---
+
+<Root description={description} title={title}>
+    <main>
+        <section class="post">
+            <slot />
+        </section>
+    </main>
+</Root>

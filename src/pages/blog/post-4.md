@@ -1,13 +1,13 @@
 ---
-layout: '@/layouts/Main.astro'
-title: My Fourth Blog Post
-author: Astro Learner
+author: Student
+date: 2022-07-16
 description: This post will show up on its own!
 image:
     url: https://docs.astro.build/default-og-image.png
     alt: The word astro against an illustration of planets and stars.
+layout: '@/layouts/Post.astro'
 tags: [astro, success]
-pubDate: 2022-07-15
+title: My Fourth Post
 ---
 
-This post should show up with my other blog posts, because `import.meta.glob()` is returning a list of all my posts in order to create my list.
+This post should show up with my other blog posts because `import.meta.glob()` is returning a list of all my posts in order to create my list.

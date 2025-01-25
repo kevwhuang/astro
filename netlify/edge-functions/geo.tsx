@@ -15,12 +15,14 @@ async function handler(res: Response, context: Context): Promise<Response> {
             textDecoration: 'none',
         },
         body: {
-            OverflowX: 'hidden',
             background: '#fdf0d5',
+        },
+        main: {
+            OverflowX: 'hidden',
             fontFamily: 'sf pro display,helvetica neue,sans-serif',
             fontSize: '25.89px',
             lineHeight: 1.5,
-            margin: '25.89px',
+            padding: '25.89px',
         },
         p: {
             marginBlock: 0,
@@ -33,15 +35,17 @@ async function handler(res: Response, context: Context): Promise<Response> {
                 <title>Geo</title>
                 <meta charSet="utf-8" />
                 <meta content="Kevin Huang" name="author" />
-                <meta content="ie=edge" http-equiv="x-ua-compatible" />
+                <meta content="ie=edge" httpEquiv="x-ua-compatible" />
                 <meta content="noindex" name="robots" />
                 <meta content="width=device-width,initial-scale=1" name="viewport" />
             </head>
 
             <body style={style.body}>
-                <a href="/" style={style.a}>Home</a>
-                <p style={style.p}>{geo.latitude}, {geo.longitude}</p>
-                <p style={style.p}>{geo.city}, {geo.subdivision?.name}, {geo.country?.name}</p>
+                <main style={style.main}>
+                    <a href="/" style={style.a}>Home</a>
+                    <p style={style.p}>{geo.latitude}, {geo.longitude}</p>
+                    <p style={style.p}>{geo.city}, {geo.subdivision?.name}, {geo.country?.name}</p>
+                </main>
             </body>
         </html>
     );
