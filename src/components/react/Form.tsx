@@ -1,11 +1,14 @@
 import React from 'react';
 
+import toast, { Toaster } from 'react-hot-toast';
+import { FidgetSpinner } from 'react-loader-spinner';
+
 import '@/styles/components/react/Form.scss';
 
 type Dispatch = React.Dispatch<Submission[]>;
 
 async function load(payload: string | null, setSubmissions: Dispatch): Promise<void> {
-    if (payload === '') return;
+    if (payload === '') return Promise.reject(Error());
 
     const res = await fetch('/.netlify/functions/serve', {
         body: JSON.stringify({
@@ -23,7 +26,11 @@ async function load(payload: string | null, setSubmissions: Dispatch): Promise<v
         setSubmissions(data);
     } else if ('id' in data) {
         await load(null, setSubmissions);
+    } else {
+        return Promise.reject(Error());
     }
+
+    return Promise.resolve();
 }
 
 function Form(): React.ReactElement {
@@ -40,11 +47,33 @@ function Form(): React.ReactElement {
         const payload = input;
         inputRef.current!.value = '';
         setInput('');
-        await load(payload, setSubmissions);
+
+        try {
+            await toast.promise(load(payload, setSubmissions), {
+                error: 'Check URL',
+                loading: 'Processing...',
+                success: 'Success',
+            });
+        } catch { }
+    }
+
+    if (submissions.length === 0) {
+        return (
+            <section className="form">
+                <FidgetSpinner />
+            </section>
+        );
     }
 
     return (
         <section className="form">
+            <Toaster
+                gutter={18}
+                position="bottom-right"
+                reverseOrder
+                toastOptions={{ className: 'form__toaster', duration: 5000 }}
+            />
+
             <form onSubmit={e => handleSubmit(e) as unknown}>
                 <input aria-label="submit" type="submit" value="&#x2705;" />
 
@@ -58,7 +87,7 @@ function Form(): React.ReactElement {
 
             {
                 submissions.map(e => (
-                    <div key={e.id}>
+                    <div key={e.id} className="form__card">
                         <h4>{e.id}</h4>
                         <p>{e.producer}</p>
                         <a href={e.stream} rel="noreferrer" target="_blank">{e.title}</a>

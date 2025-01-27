@@ -19,7 +19,8 @@
 }
 
 * {
-    transition: 200ms;
+    transition-duration: 200ms;
+    transition-property: color, font-size, gap, height, margin, padding, scale, width;
 }
 
 a {

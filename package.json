@@ -1,6 +1,6 @@
 {
     "name": "astro",
-    "version": "25.1.24",
+    "version": "25.1.26",
     "author": "Kevin Huang",
     "scripts": {
         "build": "astro build",
@@ -10,8 +10,8 @@
         "start": "ntl dev"
     },
     "dependencies": {
-        "astro": "latest",
-        "react": "latest"
+        "react-hot-toast": "latest",
+        "react-loader-spinner": "latest"
     },
     "devDependencies": {
         "@aephonics/config": "latest",
@@ -22,9 +22,11 @@
         "@sentry/astro": "latest",
         "@vite-pwa/astro": "latest",
         "@vitejs/plugin-basic-ssl": "latest",
+        "astro": "latest",
         "astro-compressor": "latest",
         "astro-robots-txt": "latest",
         "netlify-cli": "latest",
+        "react": "latest",
         "sass": "latest"
     }
 }

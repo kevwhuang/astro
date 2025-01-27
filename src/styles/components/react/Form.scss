@@ -1,4 +1,18 @@
 .form {
+    svg {
+        height: var(--f1);
+        margin: auto;
+        width: var(--f1);
+    }
+}
+
+.form {
+    &__toaster {
+        border-radius: var(--f9);
+        font-weight: bold;
+        padding: var(--f8) var(--f7);
+    }
+
     form {
         align-items: center;
         display: grid;
@@ -31,7 +45,7 @@
         }
     }
 
-    div {
+    &__card {
         margin-bottom: var(--f6);
 
         &:last-of-type {
@@ -58,11 +72,16 @@
 
 @media screen and (max-width: 768px) {
     .form {
+        svg {
+            height: var(--f2);
+            width: var(--f2);
+        }
+
         form {
             margin-bottom: var(--f7);
         }
 
-        div {
+        &__card {
             margin-bottom: var(--f7);
         }
     }
