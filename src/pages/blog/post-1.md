@@ -1,10 +1,10 @@
 ---
 author: Student
-date: 2022-07-01
+date: 2024-07-01
 description: This is the first post of my new blog.
 image:
-    url: https://docs.astro.build/assets/rose.webp
     alt: The Astro logo on a dark background with a pink glow.
+    src: https://docs.astro.build/assets/rose.webp
 layout: '@/layouts/Post.astro'
 tags: [astro, blogging, learning in public]
 title: My First Post

@@ -1,11 +1,11 @@
-<section class="hamburger">
+<div class="c-hamburger">
     <span></span>
     <span></span>
     <span></span>
-</section>
+</div>
 
 <style lang="scss">
-    section {
+    div {
         cursor: pointer;
         display: none;
         width: fit-content;
@@ -26,15 +26,15 @@
     }
 
     @media screen and (max-width: 768px) {
-        section {
+        div {
             display: block;
         }
     }
 </style>
 
 <script>
-    document.querySelector('.hamburger')?.addEventListener('click', () => {
-        for (const e of document.querySelectorAll('nav section a')) {
+    document.querySelector('.c-hamburger')?.addEventListener('click', () => {
+        for (const e of document.querySelectorAll('nav div a')) {
             e.classList.toggle('open');
         }
     });

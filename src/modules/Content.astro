@@ -1,0 +1,22 @@
+---
+const { author, date, image } = Astro.props;
+---
+
+<section class="m-content">
+    <p class="m-content__top">{date.slice(0, 10)} &nbsp;&mdash;&nbsp; {author}</p>
+    <slot />
+    <img alt={image.alt} src={image.src} />
+</section>
+
+<style lang="scss">
+    .m-content {
+        &__top {
+            opacity: 0.75;
+        }
+
+        img {
+            margin-top: var(--f6);
+            max-height: 500px;
+        }
+    }
+</style>

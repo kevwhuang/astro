@@ -1,16 +1,16 @@
 ---
-import Hamburger from '@/components/astro/Hamburger.astro';
+import Hamburger from '@/components/Hamburger.astro';
 ---
 
 <nav>
     <Hamburger />
 
-    <section>
+    <div>
         <a href="/">Home</a>
         <a href="/blog">Blog</a>
         <a href="/react">React</a>
         <a href="/geo">Geo</a>
-    </section>
+    </div>
 </nav>
 
 <style lang="scss">
@@ -21,7 +21,7 @@ import Hamburger from '@/components/astro/Hamburger.astro';
         padding: var(--f7);
     }
 
-    section {
+    div {
         display: flex;
         gap: var(--f7);
         justify-content: center;
@@ -37,7 +37,7 @@ import Hamburger from '@/components/astro/Hamburger.astro';
     }
 
     @media screen and (max-width: 768px) {
-        section {
+        div {
             flex-direction: column;
             gap: 0;
 

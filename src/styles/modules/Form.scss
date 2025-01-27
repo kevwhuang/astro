@@ -1,4 +1,4 @@
-.form {
+.m-form {
     svg {
         height: var(--f1);
         margin: auto;
@@ -6,7 +6,7 @@
     }
 }
 
-.form {
+.m-form {
     &__toaster {
         border-radius: var(--f9);
         font-weight: bold;
@@ -71,7 +71,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .form {
+    .m-form {
         svg {
             height: var(--f2);
             width: var(--f2);

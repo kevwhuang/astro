@@ -2,6 +2,7 @@
 .astro/
 .env
 .netlify/
+.playwright/
 certs/
 dist/
 node_modules/

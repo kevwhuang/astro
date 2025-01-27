@@ -1,10 +1,9 @@
 ---
+import Form from '@/modules/Form';
 import Main from '@/layouts/Main.astro';
-
-import Form from '@/components/react/Form';
 ---
 
-<Main description="A demo of reactive fetching." title="React">
+<Main description="Demo of reactive fetching." title="React">
     <main>
         <Form client:only="react" />
     </main>

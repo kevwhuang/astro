@@ -5,22 +5,22 @@ const posts = Object.values(import.meta.glob('./*.md', { eager: true }));
 const tags = [...new Set(posts.map((e: any) => e.frontmatter.tags).flat())].sort();
 ---
 
-<Main description="Index of all my blog posts." title="Blog">
+<Main description="Index of blog posts." title="Blog">
     <main>
-        <section>{tags.map(e => <a href={`/blog/${e}`}>{e.toUpperCase()}</a>)}</section>
-        <section>{posts.map((e: any) => <a href={e.url}>{e.frontmatter.title}</a>)}</section>
+        <section>
+            <h4>TAGS</h4>
+            {tags.map(e => <a href={`/blog/${e}`}>{e.toUpperCase()}</a>)}
+        </section>
+
+        <section>
+            <h4>POSTS</h4>
+            {posts.map((e: any) => <a href={e.url}>{e.frontmatter.title}</a>)}
+        </section>
     </main>
 </Main>
 
 <style lang="scss">
-    section {
-        display: flex;
-        flex-direction: column;
-        gap: var(--f8);
+    @use '@/styles/_root' as *;
 
-        a {
-            font-size: var(--f6);
-            width: fit-content;
-        }
-    }
+    @include section-blog;
 </style>

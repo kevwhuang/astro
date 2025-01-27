@@ -1,10 +1,10 @@
 ---
 author: Student
-date: 2022-07-16
+date: 2024-07-16
 description: This post will show up on its own!
 image:
-    url: https://docs.astro.build/default-og-image.png
     alt: The word astro against an illustration of planets and stars.
+    src: https://docs.astro.build/default-og-image.png
 layout: '@/layouts/Post.astro'
 tags: [astro, success]
 title: My Fourth Post

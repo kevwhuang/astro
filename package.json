@@ -1,13 +1,14 @@
 {
     "name": "astro",
-    "version": "25.1.26",
+    "version": "25.1.27",
     "author": "Kevin Huang",
     "scripts": {
         "build": "astro build",
         "dev": "astro dev",
         "gen": "bunx @vite-pwa/assets-generator --preset minimal-2023 public/favicon.svg",
         "lint": "bun tsc & bun eslint",
-        "start": "ntl dev"
+        "start": "ntl dev",
+        "test": "playwright test"
     },
     "dependencies": {
         "react-hot-toast": "latest",
@@ -19,6 +20,7 @@
         "@astrojs/react": "latest",
         "@astrojs/sitemap": "latest",
         "@netlify/edge-functions": "latest",
+        "@playwright/test": "latest",
         "@sentry/astro": "latest",
         "@vite-pwa/astro": "latest",
         "@vitejs/plugin-basic-ssl": "latest",

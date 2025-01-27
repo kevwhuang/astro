@@ -3,7 +3,7 @@ import React from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { FidgetSpinner } from 'react-loader-spinner';
 
-import '@/styles/components/react/Form.scss';
+import '@/styles/modules/Form.scss';
 
 type Dispatch = React.Dispatch<Submission[]>;
 
@@ -59,19 +59,19 @@ function Form(): React.ReactElement {
 
     if (submissions.length === 0) {
         return (
-            <section className="form">
+            <section className="m-form">
                 <FidgetSpinner />
             </section>
         );
     }
 
     return (
-        <section className="form">
+        <section className="m-form">
             <Toaster
                 gutter={18}
-                position="bottom-right"
+                position="top-right"
                 reverseOrder
-                toastOptions={{ className: 'form__toaster', duration: 5000 }}
+                toastOptions={{ className: 'm-form__toaster', duration: 5000 }}
             />
 
             <form onSubmit={e => handleSubmit(e) as unknown}>
@@ -87,7 +87,7 @@ function Form(): React.ReactElement {
 
             {
                 submissions.map(e => (
-                    <div key={e.id} className="form__card">
+                    <div key={e.id} className="m-form__card">
                         <h4>{e.id}</h4>
                         <p>{e.producer}</p>
                         <a href={e.stream} rel="noreferrer" target="_blank">{e.title}</a>

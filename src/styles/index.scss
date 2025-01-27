@@ -62,16 +62,16 @@ h6 {
 main {
     padding: var(--f5);
 
-    > * {
+    section {
         margin-bottom: var(--f5);
 
-        &:last-of-type {
+        &:last-child {
             margin-bottom: 0;
         }
     }
 }
 
-.post {
+.m-content {
     > * {
         margin-bottom: var(--f8);
 
@@ -80,13 +80,13 @@ main {
         }
     }
 
-    code {
-        background: color.adjust($c1, $lightness: -10%);
-    }
-
     h6 {
-        &:not(:first-of-type) {
+        &:not(:first-child) {
             margin-top: var(--f6);
         }
+    }
+
+    code {
+        background: color.adjust($c1, $lightness: -10%);
     }
 }

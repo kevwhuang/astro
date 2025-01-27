@@ -33,18 +33,7 @@ const [{ tag }, { posts }] = [Astro.params, Astro.props];
 </Main>
 
 <style lang="scss">
-    section {
-        display: flex;
-        flex-direction: column;
-        gap: var(--f8);
+    @use '@/styles/_root' as *;
 
-        h4 {
-            color: var(--c2);
-        }
-
-        a {
-            font-size: var(--f6);
-            width: fit-content;
-        }
-    }
+    @include section-blog;
 </style>

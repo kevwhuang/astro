@@ -31,3 +31,20 @@ $f9: 6.11px;
         }
     }
 }
+
+@mixin section-blog {
+    section {
+        display: flex;
+        flex-direction: column;
+        gap: var(--f8);
+
+        h4 {
+            color: var(--c2);
+        }
+
+        a {
+            font-size: var(--f6);
+            width: fit-content;
+        }
+    }
+}

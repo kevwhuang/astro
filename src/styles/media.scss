@@ -14,7 +14,7 @@
     main {
         padding: var(--f6);
 
-        > * {
+        section {
             margin-bottom: var(--f6);
         }
     }
@@ -22,7 +22,7 @@
 
 @media screen and (max-width: 480px) {}
 
-@media screen and (max-width: 200px) {}
+@media screen and (max-width: 300px) {}
 
 @media screen and (orientation: landscape) {}
 
