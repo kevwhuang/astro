@@ -75,11 +75,11 @@ function Form(): React.ReactElement {
             />
 
             <form onSubmit={e => handleSubmit(e) as unknown}>
-                <input aria-label="submit" type="submit" value="&#x2705;" />
+                <input aria-label="submit link" type="submit" value="&#x2705;" />
 
                 <input
                     ref={inputRef}
-                    aria-label="submission link"
+                    aria-label="enter link"
                     maxLength={200}
                     onChange={e => setInput(e.target.value)}
                 />
