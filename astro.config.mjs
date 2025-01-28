@@ -44,7 +44,7 @@ const redirects = {
 };
 
 const astro = defineConfig({
-    adapter: netlify({ cacheOnDemandPages: true }),
+    adapter: netlify({ cacheOnDemandPages: true, edgeMiddleware: true }),
     integrations: [
         ssl(),
         react({ include: ['**/*.tsx'] }),
@@ -65,7 +65,7 @@ const astro = defineConfig({
         }),
         compression(),
     ],
-    output: 'server',
+    output: 'static',
     redirects,
     site: 'https://k-astro.netlify.app',
 });

@@ -19,7 +19,7 @@ async function handler(res: Response, context: Context): Promise<Response> {
         },
         main: {
             OverflowX: 'hidden',
-            fontFamily: 'sf pro display,helvetica neue,sans-serif',
+            fontFamily: 'sf pro display, helvetica neue, sans-serif',
             fontSize: '25.89px',
             lineHeight: 1.5,
             padding: '25.89px',
@@ -37,7 +37,7 @@ async function handler(res: Response, context: Context): Promise<Response> {
                 <meta content="Kevin Huang" name="author" />
                 <meta content="ie=edge" httpEquiv="x-ua-compatible" />
                 <meta content="noindex" name="robots" />
-                <meta content="width=device-width,initial-scale=1" name="viewport" />
+                <meta content="width=device-width, initial-scale=1" name="viewport" />
             </head>
 
             <body style={style.body}>

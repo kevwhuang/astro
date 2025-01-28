@@ -2,8 +2,6 @@
 command = 'bun run build'
 functions = 'netlify/functions'
 publish = 'dist'
-[build.processing.html]
-pretty_urls = true
 
 [dev]
 autoLaunch = true
@@ -20,7 +18,9 @@ keyFile = 'certs/key.pem'
 [[headers]]
 for = '/*'
 [headers.values]
-Access-Control-Allow-Origin = '*'
-Referrer-Policy = 'same-origin'
-X-Content-Type-Options = 'nosniff'
-X-Frame-Options = 'sameorigin'
+access-control-allow-origin = 'https://k-astro.netlify.app'
+content-security-policy = 'block-all-mixed-content'
+permissions-policy = 'geolocation=(self), microphone=(self)'
+referrer-policy = 'same-origin'
+x-content-type-options = 'nosniff'
+x-frame-options = 'sameorigin'
