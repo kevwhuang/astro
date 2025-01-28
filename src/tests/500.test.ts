@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-import exists from '@/utils/exists';
+import { exists } from '@/utils/_all';
 
 test.beforeEach(async ({ page }) => {
     await page.goto('/500');

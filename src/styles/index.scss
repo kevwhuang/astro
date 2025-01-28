@@ -1,5 +1,4 @@
 @use '_root' as *;
-@use 'sass:color';
 
 :root {
     --c1: #fdf0d5;
@@ -68,25 +67,5 @@ main {
         &:last-child {
             margin-bottom: 0;
         }
-    }
-}
-
-.m-content {
-    > * {
-        margin-bottom: var(--f8);
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-
-    h6 {
-        &:not(:first-child) {
-            margin-top: var(--f6);
-        }
-    }
-
-    code {
-        background: color.adjust($c1, $lightness: -10%);
     }
 }

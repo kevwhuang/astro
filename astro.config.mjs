@@ -39,6 +39,10 @@ const manifest = {
     theme_color: '#fdf0d5',
 };
 
+const redirects = {
+    '/home': '/',
+};
+
 const astro = defineConfig({
     adapter: netlify({ cacheOnDemandPages: true }),
     integrations: [
@@ -62,6 +66,7 @@ const astro = defineConfig({
         compression(),
     ],
     output: 'server',
+    redirects,
     site: 'https://k-astro.netlify.app',
 });
 

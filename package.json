@@ -1,6 +1,6 @@
 {
     "name": "astro",
-    "version": "25.1.27",
+    "version": "25.1.28",
     "author": "Kevin Huang",
     "scripts": {
         "build": "astro build",

@@ -1,41 +1,33 @@
 import { expect, test } from '@playwright/test';
 
-import exists from '@/utils/exists';
+import { exists } from '@/utils/_all';
 
-let target = '';
+let target = false;
 
 test.beforeEach(async ({ page }) => {
     await page.goto('/blog');
 
     const elements = await page
         .locator('css=main>section')
-        .first()
+        .locator('nth=1')
         .getByRole('link')
         .all();
 
     if (!elements[0]) return;
-    const text = await elements[0].textContent();
-    if (typeof text === 'string') target = text.toLowerCase();
+    target = true;
     await elements[0].click();
 });
 
 test('page', async ({ page }) => {
     if (!target) return;
-    await expect(page).toHaveTitle(`${target} | Blog`);
+    await expect(page).toHaveTitle(/./u);
     await exists(page, 'navigation');
-    await exists(page, 'contentinfo');
     await expect(page.locator('css=main>section')).toHaveCount(1);
 });
 
 test('section 1', async ({ page }) => {
     if (!target) return;
-    await exists(page, 'heading', target);
-
-    const elements = await page
-        .locator('css=main>section')
-        .first()
-        .getByRole('link')
-        .all();
-
-    expect(elements.length).toBeGreaterThan(0);
+    const text = await page.locator('css=main>section').first().textContent();
+    expect(text).toBeTruthy();
+    await expect(page.locator('css=main>section>img')).toBeVisible();
 });

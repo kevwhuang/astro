@@ -1,11 +1,17 @@
 ---
+import defaultPost from '@/assets/default_post.webp';
+
 const { author, date, image } = Astro.props;
 ---
 
 <section class="m-content">
     <p class="m-content__top">{date.slice(0, 10)} &nbsp;&mdash;&nbsp; {author}</p>
     <slot />
-    <img alt={image.alt} src={image.src} />
+
+    <img
+        alt={image.src ? image.alt : 'A default image of a compass.'}
+        src={image.src ?? defaultPost.src}
+    />
 </section>
 
 <style lang="scss">
@@ -16,7 +22,8 @@ const { author, date, image } = Astro.props;
 
         img {
             margin-top: var(--f6);
-            max-height: 500px;
+            max-height: 1000px;
+            max-width: 1000px;
         }
     }
 </style>

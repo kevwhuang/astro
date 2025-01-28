@@ -5,13 +5,8 @@ const playwright = defineConfig({
     globalTimeout: 600000,
     outputDir: '.playwright',
     projects: [
-        {
-            name: 'Chromium',
-            use: { ...devices['Desktop Chrome'] },
-        }, {
-            name: 'Firefox',
-            use: { ...devices['Desktop Firefox'] },
-        },
+        { name: 'Chromium', use: { ...devices['Desktop Chrome'] } },
+        { name: 'Firefox', use: { ...devices['Desktop Firefox'] } },
     ],
     reporter: [
         ['html', { open: 'never', outputFolder: '.playwright' }],

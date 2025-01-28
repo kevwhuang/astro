@@ -20,18 +20,7 @@ keyFile = 'certs/key.pem'
 [[headers]]
 for = '/*'
 [headers.values]
-access-control-allow-origin = '*'
-referrer-policy = 'same-origin'
-x-content-type-options = 'nosniff'
-x-frame-options = 'sameorigin'
-
-[[headers]]
-for = '/manifest.webmanifest'
-[headers.values]
-content-type = 'application/manifest+json'
-
-[[redirects]]
-force = true
-from = '/home'
-status = 200
-to = '/'
+Access-Control-Allow-Origin = '*'
+Referrer-Policy = 'same-origin'
+X-Content-Type-Options = 'nosniff'
+X-Frame-Options = 'sameorigin'

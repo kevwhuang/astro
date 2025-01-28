@@ -11,7 +11,7 @@ async function handler(res: Response, context: Context): Promise<Response> {
 
     const style = {
         a: {
-            color: '#003049',
+            color: '#669bbc',
             textDecoration: 'none',
         },
         body: {

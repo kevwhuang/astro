@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-import exists from '@/utils/exists';
+import { exists, nonexists } from '@/utils/_all';
 
 test.beforeEach(async ({ page }) => {
     await page.goto('/');
@@ -15,10 +15,10 @@ test('navbar', async ({ page }) => {
     await exists(page, 'link', 'geo');
     await page.setViewportSize({ height: 720, width: 480 });
     await expect(page.locator('css=div.c-hamburger')).toBeVisible();
-    await expect(page.getByRole('link', { name: 'home' })).toBeHidden();
-    await expect(page.getByRole('link', { name: 'blog' })).toBeHidden();
-    await expect(page.getByRole('link', { name: 'react' })).toBeHidden();
-    await expect(page.getByRole('link', { name: 'geo' })).toBeHidden();
+    await nonexists(page, 'link', 'home');
+    await nonexists(page, 'link', 'blog');
+    await nonexists(page, 'link', 'react');
+    await nonexists(page, 'link', 'geo');
     await page.locator('css=div.c-hamburger').click();
     await exists(page, 'link', 'home');
     await exists(page, 'link', 'blog');

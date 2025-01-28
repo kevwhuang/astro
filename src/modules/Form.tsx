@@ -1,7 +1,9 @@
 import React from 'react';
 
-import toast, { Toaster } from 'react-hot-toast';
 import { FidgetSpinner } from 'react-loader-spinner';
+import toast from 'react-hot-toast';
+
+import Toaster from '@/components/Toaster';
 
 import '@/styles/modules/Form.scss';
 
@@ -67,12 +69,7 @@ function Form(): React.ReactElement {
 
     return (
         <section className="m-form">
-            <Toaster
-                gutter={18}
-                position="top-right"
-                reverseOrder
-                toastOptions={{ className: 'm-form__toaster', duration: 5000 }}
-            />
+            <Toaster />
 
             <form onSubmit={e => handleSubmit(e) as unknown}>
                 <input aria-label="submit link" type="submit" value="&#x2705;" />
