@@ -99,6 +99,7 @@
         },
         "types": [
             "bun-types",
+            "vite/client",
         ],
     },
 }

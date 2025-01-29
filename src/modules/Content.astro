@@ -1,11 +1,11 @@
 ---
 import defaultPost from '@/assets/default_post.webp';
 
-const { author, date, image } = Astro.props;
+const { author, image, pubDate } = Astro.props;
 ---
 
 <section class="m-content">
-    <p class="m-content__top">{date.slice(0, 10)} &nbsp;&mdash;&nbsp; {author}</p>
+    <p class="m-content__top">{pubDate.slice(0, 10)} &nbsp;&mdash;&nbsp; {author}</p>
     <slot />
 
     <img

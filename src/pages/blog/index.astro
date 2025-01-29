@@ -2,14 +2,14 @@
 import Main from '@/layouts/Main.astro';
 
 const posts = Object.values(import.meta.glob('./post/*.md', { eager: true }));
-const tags = [...new Set(posts.map((e: any) => e.frontmatter.tags).flat())].sort();
+const tags = [...new Set(posts.map((e: any) => e.frontmatter.categories).flat())].sort();
 ---
 
 <Main description="Index of blog posts." title="Blog">
     <main>
         <section>
             <h4>TAGS</h4>
-            {tags.map(e => <a href={`/blog/${e}`}>{e.toUpperCase()}</a>)}
+            {tags.map(e => <a href={`/blog/${e}`}>{e?.toUpperCase()}</a>)}
         </section>
 
         <section>

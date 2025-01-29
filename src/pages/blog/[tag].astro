@@ -5,11 +5,11 @@ export const prerender = true;
 
 export function getStaticPaths() {
     const posts = Object.values(import.meta.glob('./post/*.md', { eager: true }));
-    const tags = [...new Set(posts.map((e: any) => e.frontmatter.tags).flat())];
+    const tags = [...new Set(posts.map((e: any) => e.frontmatter.categories).flat())];
 
     return tags.map(e => ({
         params: { tag: e },
-        props: { posts: posts.filter((f: any) => f.frontmatter.tags.includes(e)) },
+        props: { posts: posts.filter((f: any) => f.frontmatter.categories.includes(e)) },
     }));
 }
 

@@ -1,6 +1,6 @@
-import type { Handler } from '@netlify/functions';
+import type { HandlerEvent, HandlerResponse } from '@netlify/functions';
 
-const handler: Handler = async event => {
+async function handler(event: HandlerEvent): Promise<HandlerResponse> {
     const { endpoint, method, payload } = JSON.parse(event.body!);
     const url = `${process.env.NETLIFY_BASE}${endpoint}`;
     const statusCode = 200;
@@ -28,6 +28,6 @@ const handler: Handler = async event => {
     }
 
     return { body: '', statusCode };
-};
+}
 
 export { handler };
