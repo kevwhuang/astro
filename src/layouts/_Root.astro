@@ -20,12 +20,13 @@ const { description, title } = Astro.props;
         <meta content="ie=edge" http-equiv="x-ua-compatible" />
         <meta content="index, follow" name="robots" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta content={Astro.generator} name="generator" />
         <meta content={description} name="description" />
 
         <link
             as="style"
             href="https://fonts.cdnfonts.com/css/sf-pro-display"
-            onload="this.onload=null;this.rel='stylesheet'"
+            onload="this.onload=null; this.rel='stylesheet'"
             rel="preload"
         />
 

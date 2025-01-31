@@ -45,7 +45,12 @@ const redirects = {
 };
 
 const astro = defineConfig({
-    adapter: netlify({ cacheOnDemandPages: true, edgeMiddleware: true }),
+    adapter: netlify({
+        cacheOnDemandPages: true,
+        edgeMiddleware: true,
+        imageCDN: false,
+    }),
+    devToolbar: { enabled: false },
     experimental: { svg: true },
     integrations: [
         ssl(),
@@ -70,6 +75,7 @@ const astro = defineConfig({
     output: 'static',
     redirects,
     site: 'https://k-astro.netlify.app',
+    trailingSlash: 'never',
 });
 
 export default astro;

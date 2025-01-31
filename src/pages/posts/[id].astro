@@ -3,6 +3,8 @@ import { getCollection, render } from 'astro:content';
 
 import Post from '@/layouts/Post.astro';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
     const posts = await getCollection('posts');
 

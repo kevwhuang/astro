@@ -3,6 +3,8 @@ import { getCollection } from 'astro:content';
 
 import Main from '@/layouts/Main.astro';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
     const posts = (await getCollection('posts')).sort((a: any, b: any) => a.id - b.id);
     const tags = [...new Set(posts.map((e: any) => e.data.categories).flat())];

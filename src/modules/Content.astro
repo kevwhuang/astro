@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 import defaultPost from '@/assets/images/default_post.webp';
 
 const { author, image, pubDate } = Astro.props;
@@ -8,10 +10,13 @@ const { author, image, pubDate } = Astro.props;
     <p class="m-content__top">{pubDate.toLocaleDateString()} &nbsp;&mdash;&nbsp; {author}</p>
     <slot />
 
-    <img
+    <Image
         alt={image.src ? image.alt : 'A default image of a compass.'}
+        class="m-content__image"
+        decoding="async"
+        inferSize
         loading="lazy"
-        src={image.src ?? defaultPost.src}
+        src={image.src ?? defaultPost}
     />
 </section>
 
@@ -21,7 +26,8 @@ const { author, image, pubDate } = Astro.props;
             opacity: 0.75;
         }
 
-        img {
+        &__image {
+            height: 100%;
             margin-top: var(--f6);
             max-height: 1000px;
             max-width: min(1000px, 100%);
