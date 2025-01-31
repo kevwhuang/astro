@@ -1,8 +1,7 @@
 import React from 'react';
-
-import { FidgetSpinner } from 'react-loader-spinner';
 import toast from 'react-hot-toast';
 
+import { FidgetSpinner } from 'react-loader-spinner';
 import Toaster from '@/components/Toaster';
 
 import '@/styles/modules/Form.scss';

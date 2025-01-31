@@ -1,16 +1,15 @@
 ---
+import { getCollection } from 'astro:content';
+
 import Main from '@/layouts/Main.astro';
 
-export const prerender = true;
-
-export function getStaticPaths() {
-    const posts = Object.values(import.meta.glob('./post/*.md', { eager: true }));
-    const tags = [...new Set(posts.map((e: any) => e.frontmatter.categories).flat())];
-    posts.sort((a: any, b: any) => a.frontmatter.pubDate.localeCompare(b.frontmatter.pubDate));
+export async function getStaticPaths() {
+    const posts = (await getCollection('posts')).sort((a: any, b: any) => a.id - b.id);
+    const tags = [...new Set(posts.map((e: any) => e.data.categories).flat())];
 
     return tags.map(e => ({
         params: { tag: e },
-        props: { posts: posts.filter((f: any) => f.frontmatter.categories.includes(e)) },
+        props: { posts: posts.filter((f: any) => f.data.categories.includes(e)) },
     }));
 }
 
@@ -20,12 +19,12 @@ const [{ tag }, { posts }] = [Astro.params, Astro.props];
 <Main description={`Posts tagged with "${tag}".`} title={`${tag} | Blog`}>
     <main>
         <section>
-            <h4>{tag.toUpperCase()}</h4>
+            <h4>{(tag as string).toUpperCase()}</h4>
 
             {
                 posts.map((e: any) => (
-                    <a href={e.url}>
-                        {e.frontmatter.title} [{e.frontmatter.author}]
+                    <a href={`/posts/${e.id}`}>
+                        {e.data.title} [{e.data.author}]
                     </a>
                 ))
             }

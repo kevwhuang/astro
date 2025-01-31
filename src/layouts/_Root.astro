@@ -35,7 +35,7 @@ const { description, title } = Astro.props;
         <link href="/manifest.webmanifest" rel="manifest" />
 
         <link
-            href={new URL('rss.xml', Astro.site)}
+            href={`${Astro.site}rss.xml`}
             rel="alternate"
             title="Astro"
             type="application/rss+xml"

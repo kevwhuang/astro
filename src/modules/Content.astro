@@ -5,11 +5,12 @@ const { author, image, pubDate } = Astro.props;
 ---
 
 <section class="m-content">
-    <p class="m-content__top">{pubDate.slice(0, 10)} &nbsp;&mdash;&nbsp; {author}</p>
+    <p class="m-content__top">{pubDate.toLocaleDateString()} &nbsp;&mdash;&nbsp; {author}</p>
     <slot />
 
     <img
         alt={image.src ? image.alt : 'A default image of a compass.'}
+        loading="lazy"
         src={image.src ?? defaultPost.src}
     />
 </section>

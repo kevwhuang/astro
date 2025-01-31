@@ -41,6 +41,7 @@ const manifest = {
 
 const redirects = {
     '/home': '/',
+    '/posts': '/blog',
 };
 
 const astro = defineConfig({

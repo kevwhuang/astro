@@ -2,7 +2,7 @@
 import Content from '@/modules/Content.astro';
 import Root from '@/layouts/_Root.astro';
 
-const { author, description, image, pubDate, title } = Astro.props.frontmatter;
+const { author, description, image, pubDate, title } = Astro.props.post.data;
 ---
 
 <Root description={description} title={title}>

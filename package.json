@@ -8,6 +8,7 @@
         "gen": "bunx @vite-pwa/assets-generator --preset minimal-2023 public/favicon.svg",
         "lint": "bun tsc & bun eslint",
         "start": "ntl dev",
+        "sync": "astro sync",
         "test": "playwright test"
     },
     "dependencies": {

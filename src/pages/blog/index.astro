@@ -1,21 +1,22 @@
 ---
+import { getCollection } from 'astro:content';
+
 import Main from '@/layouts/Main.astro';
 
-const posts = Object.values(import.meta.glob('./post/*.md', { eager: true }));
-const tags = [...new Set(posts.map((e: any) => e.frontmatter.categories).flat())].sort();
-posts.sort((a: any, b: any) => a.frontmatter.pubDate.localeCompare(b.frontmatter.pubDate));
+const posts = (await getCollection('posts')).sort((a: any, b: any) => a.id - b.id);
+const tags = [...new Set(posts.map((e: any) => e.data.categories).flat())].sort();
 ---
 
 <Main description="Index of blog posts." title="Blog">
     <main>
         <section>
             <h4>TAGS</h4>
-            {tags.map(e => <a href={`/blog/${e}`}>{e?.toUpperCase()}</a>)}
+            {tags.map((e: any) => <a href={`/blog/${e}`}>{e.toUpperCase()}</a>)}
         </section>
 
         <section>
             <h4>POSTS</h4>
-            {posts.map((e: any) => <a href={e.url}>{e.frontmatter.title}</a>)}
+            {posts.map((e: any) => <a href={`/posts/${e.id}`}>{e.data.title}</a>)}
         </section>
     </main>
 </Main>
