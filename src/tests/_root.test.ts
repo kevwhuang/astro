@@ -31,4 +31,5 @@ test('footer', async ({ page }) => {
     await exists(page, 'link', 'github');
     await exists(page, 'link', 'youtube');
     await exists(page, 'link', 'twitter');
+    await expect(page.locator('css=footer>svg')).toBeVisible();
 });

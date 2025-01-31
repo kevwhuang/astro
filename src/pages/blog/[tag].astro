@@ -6,6 +6,7 @@ export const prerender = true;
 export function getStaticPaths() {
     const posts = Object.values(import.meta.glob('./post/*.md', { eager: true }));
     const tags = [...new Set(posts.map((e: any) => e.frontmatter.categories).flat())];
+    posts.sort((a: any, b: any) => a.frontmatter.pubDate.localeCompare(b.frontmatter.pubDate));
 
     return tags.map(e => ({
         params: { tag: e },

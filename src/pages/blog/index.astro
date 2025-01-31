@@ -3,6 +3,7 @@ import Main from '@/layouts/Main.astro';
 
 const posts = Object.values(import.meta.glob('./post/*.md', { eager: true }));
 const tags = [...new Set(posts.map((e: any) => e.frontmatter.categories).flat())].sort();
+posts.sort((a: any, b: any) => a.frontmatter.pubDate.localeCompare(b.frontmatter.pubDate));
 ---
 
 <Main description="Index of blog posts." title="Blog">

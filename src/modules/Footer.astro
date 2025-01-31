@@ -1,20 +1,33 @@
 ---
 import Social from '@/components/Social.astro';
+
+import SunMoon from '@/assets/icons/SunMoon.svg';
 ---
 
 <footer>
     <Social domain="github" handle="withastro" />
     <Social domain="youtube" handle="astrodotbuild" />
     <Social domain="twitter" handle="astrodotbuild" />
+    <SunMoon />
 </footer>
 
 <style lang="scss">
     footer {
+        align-items: center;
         border-top: 2px solid;
         display: flex;
         gap: var(--f7);
         justify-content: end;
         padding: var(--f7);
+    }
+
+    .lucide {
+        color: var(--c4);
+        cursor: pointer;
+
+        &:hover {
+            color: var(--c5);
+        }
     }
 
     @media screen and (max-width: 480px) {
@@ -23,3 +36,10 @@ import Social from '@/components/Social.astro';
         }
     }
 </style>
+
+<script>
+    document.querySelector('footer svg')?.addEventListener('click', () => {
+        const theme = document.documentElement.getAttribute('data-theme');
+        document.documentElement.setAttribute('data-theme', theme === 'light' ? 'dark' : 'light');
+    });
+</script>

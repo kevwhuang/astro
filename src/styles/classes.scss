@@ -1,6 +1,3 @@
-@use '_root' as *;
-@use 'sass:color';
-
 .m-content {
     > * {
         margin-bottom: var(--f8);
@@ -17,6 +14,6 @@
     }
 
     code {
-        background: color.adjust($c1, $lightness: -10%);
+        text-decoration: underline;
     }
 }

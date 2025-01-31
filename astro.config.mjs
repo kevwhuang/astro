@@ -45,6 +45,7 @@ const redirects = {
 
 const astro = defineConfig({
     adapter: netlify({ cacheOnDemandPages: true, edgeMiddleware: true }),
+    experimental: { svg: true },
     integrations: [
         ssl(),
         react({ include: ['**/*.tsx'] }),

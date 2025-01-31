@@ -1,5 +1,3 @@
-@use '_root' as *;
-
 :root {
     --c1: #fdf0d5;
     --c2: #780000;
@@ -19,7 +17,7 @@
 
 * {
     transition-duration: 200ms;
-    transition-property: color, font-size, gap, height, margin, padding, scale, width;
+    transition-property: color, font-size, gap, height, margin, opacity, padding, scale, width;
 }
 
 a {
@@ -68,4 +66,12 @@ main {
             margin-bottom: 0;
         }
     }
+}
+
+[data-theme='light'] {
+    --c1: #d5e2fd;
+    --c2: #007878;
+    --c3: #12c1b4;
+    --c4: #491900;
+    --c5: #bc8766;
 }

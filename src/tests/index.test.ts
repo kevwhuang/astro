@@ -7,7 +7,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('page', async ({ page }) => {
-    await expect(page).toHaveTitle('Home');
+    await expect(page).toHaveTitle('Astro');
     await exists(page, 'navigation');
     await exists(page, 'contentinfo');
     await expect(page.locator('css=main>section')).toHaveCount(1);
