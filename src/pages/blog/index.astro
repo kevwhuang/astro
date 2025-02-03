@@ -5,9 +5,10 @@ import Main from '@/layouts/Main.astro';
 
 const posts = (await getCollection('posts')).sort((a: any, b: any) => a.id - b.id);
 const tags = [...new Set(posts.map((e: any) => e.data.categories).flat())].sort();
+const pages = Array.from({ length: Math.floor(posts.length / 10) }, (_, i) => i);
 ---
 
-<Main description="Index of blog posts." title="Blog">
+<Main description="Index of all blog posts." title="Blog">
     <main>
         <section>
             <h4>TAGS</h4>
@@ -16,7 +17,14 @@ const tags = [...new Set(posts.map((e: any) => e.data.categories).flat())].sort(
 
         <section>
             <h4>POSTS</h4>
-            {posts.map((e: any) => <a href={`/posts/${e.id}`}>{e.data.title}</a>)}
+
+            {
+                pages.map(e => (
+                    <a href={`/blog/${e + 1}`}>
+                        {10 * e + 1}&ndash;{10 * e + 10}
+                    </a>
+                ))
+            }
         </section>
     </main>
 </Main>

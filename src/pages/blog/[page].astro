@@ -1,0 +1,74 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+
+import ChevronLeft from '@/assets/icons/ChevronLeft.svg';
+import ChevronRight from '@/assets/icons/ChevronRight.svg';
+import ChevronsLeft from '@/assets/icons/ChevronsLeft.svg';
+import ChevronsRight from '@/assets/icons/ChevronsRight.svg';
+import Main from '@/layouts/Main.astro';
+
+export const prerender = true;
+
+export const getStaticPaths = (async ({ paginate }) => {
+    const posts = (await getCollection('posts')).sort((a: any, b: any) => a.id - b.id);
+
+    return paginate(posts, { pageSize: 10 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+---
+
+<Main
+    description={`Page ${page.currentPage} of all blog posts.`}
+    title={`Page ${page.currentPage} | Blog`}
+>
+    <main>
+        <section>
+            <h4>Page {page.currentPage}</h4>
+
+            {
+                page.data.map((e: any) => (
+                    <a href={`/posts/${e.id}`}>
+                        {e.data.title} [{e.data.author}]
+                    </a>
+                ))
+            }
+
+            <div>
+                <a href={page.url.first ?? '/blog/1'}>
+                    <ChevronsLeft title="Go to first page" />
+                </a>
+
+                <a href={page.url.prev ?? '/blog/1'}>
+                    <ChevronLeft title="Go to previous page" />
+                </a>
+
+                <a href={page.url.next ?? `/blog/${page.lastPage}`}>
+                    <ChevronRight title="Go to next page" />
+                </a>
+
+                <a href={page.url.last ?? `/blog/${page.lastPage}`}>
+                    <ChevronsRight title="Go to last page" />
+                </a>
+            </div>
+        </section>
+    </main>
+</Main>
+
+<style lang="scss">
+    @use '@/styles/_root' as *;
+
+    @include section-blog;
+
+    div {
+        display: flex;
+
+        a {
+            svg {
+                height: var(--f5);
+                width: var(--f5);
+            }
+        }
+    }
+</style>

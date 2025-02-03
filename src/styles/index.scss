@@ -68,6 +68,15 @@ main {
     }
 }
 
+svg {
+    color: var(--c4);
+    cursor: pointer;
+
+    &:hover {
+        color: var(--c5);
+    }
+}
+
 [data-theme='light'] {
     --c1: #d5e2fd;
     --c2: #007878;
