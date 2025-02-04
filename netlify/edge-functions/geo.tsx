@@ -16,6 +16,7 @@ async function handler(res: Response, context: Context): Promise<Response> {
         },
         body: {
             background: '#fdf0d5',
+            margin: 0,
         },
         main: {
             OverflowX: 'hidden',

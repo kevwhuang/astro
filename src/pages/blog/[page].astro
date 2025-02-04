@@ -23,37 +23,35 @@ const { page } = Astro.props;
     description={`Page ${page.currentPage} of all blog posts.`}
     title={`Page ${page.currentPage} | Blog`}
 >
-    <main>
-        <section>
-            <h4>Page {page.currentPage}</h4>
+    <section>
+        <h4>Page {page.currentPage}</h4>
 
-            {
-                page.data.map((e: any) => (
-                    <a href={`/posts/${e.id}`}>
-                        {e.data.title} [{e.data.author}]
-                    </a>
-                ))
-            }
-
-            <div>
-                <a href={page.url.first ?? '/blog/1'}>
-                    <ChevronsLeft title="Go to first page" />
+        {
+            page.data.map((e: any) => (
+                <a href={`/posts/${e.id}`}>
+                    {e.data.title} [{e.data.author}]
                 </a>
+            ))
+        }
 
-                <a href={page.url.prev ?? '/blog/1'}>
-                    <ChevronLeft title="Go to previous page" />
-                </a>
+        <div>
+            <a href={page.url.first ?? '/blog/1'}>
+                <ChevronsLeft title="Go to first page" />
+            </a>
 
-                <a href={page.url.next ?? `/blog/${page.lastPage}`}>
-                    <ChevronRight title="Go to next page" />
-                </a>
+            <a href={page.url.prev ?? '/blog/1'}>
+                <ChevronLeft title="Go to previous page" />
+            </a>
 
-                <a href={page.url.last ?? `/blog/${page.lastPage}`}>
-                    <ChevronsRight title="Go to last page" />
-                </a>
-            </div>
-        </section>
-    </main>
+            <a href={page.url.next ?? `/blog/${page.lastPage}`}>
+                <ChevronRight title="Go to next page" />
+            </a>
+
+            <a href={page.url.last ?? `/blog/${page.lastPage}`}>
+                <ChevronsRight title="Go to last page" />
+            </a>
+        </div>
+    </section>
 </Main>
 
 <style lang="scss">

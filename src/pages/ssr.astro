@@ -1,0 +1,21 @@
+---
+import Main from '@/layouts/Main.astro';
+
+export const prerender = false;
+
+let counter = 0;
+
+if (Astro.cookies.has('counter')) {
+    const cookie = Astro.cookies.get('counter');
+    const value = cookie?.number();
+    if (value !== undefined && !isNaN(value)) counter = value + 1;
+}
+
+Astro.cookies.set('counter', String(counter));
+---
+
+<Main description="" title="">
+    <section>
+        <h2>{counter}</h2>
+    </section>
+</Main>

@@ -19,19 +19,17 @@ const [{ tag }, { posts }] = [Astro.params, Astro.props];
 ---
 
 <Main description={`Posts tagged with "${tag}".`} title={`${tag} | Blog`}>
-    <main>
-        <section>
-            <h4>{(tag as string).toUpperCase()}</h4>
+    <section>
+        <h4>{(tag as string).toUpperCase()}</h4>
 
-            {
-                posts.map((e: any) => (
-                    <a href={`/posts/${e.id}`}>
-                        {e.data.title} [{e.data.author}]
-                    </a>
-                ))
-            }
-        </section>
-    </main>
+        {
+            posts.map((e: any) => (
+                <a href={`/posts/${e.id}`}>
+                    {e.data.title} [{e.data.author}]
+                </a>
+            ))
+        }
+    </section>
 </Main>
 
 <style lang="scss">

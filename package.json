@@ -1,6 +1,6 @@
 {
     "name": "astro",
-    "version": "25.2.3",
+    "version": "25.2.4",
     "author": "Kevin Huang",
     "scripts": {
         "build": "astro build",
@@ -16,6 +16,7 @@
         "react-loader-spinner": "latest"
     },
     "devDependencies": {
+        "autoprefixer": "latest",
         "@aephonics/config": "latest",
         "@astrojs/netlify": "latest",
         "@astrojs/react": "latest",

@@ -9,24 +9,22 @@ const pages = Array.from({ length: Math.floor(posts.length / 10) }, (_, i) => i)
 ---
 
 <Main description="Index of all blog posts." title="Blog">
-    <main>
-        <section>
-            <h4>TAGS</h4>
-            {tags.map((e: any) => <a href={`/blog/${e}`}>{e.toUpperCase()}</a>)}
-        </section>
+    <section>
+        <h4>TAGS</h4>
+        {tags.map((e: any) => <a href={`/blog/${e}`}>{e.toUpperCase()}</a>)}
+    </section>
 
-        <section>
-            <h4>POSTS</h4>
+    <section>
+        <h4>POSTS</h4>
 
-            {
-                pages.map(e => (
-                    <a href={`/blog/${e + 1}`}>
-                        {10 * e + 1}&ndash;{10 * e + 10}
-                    </a>
-                ))
-            }
-        </section>
-    </main>
+        {
+            pages.map(e => (
+                <a href={`/blog/${e + 1}`}>
+                    {10 * e + 1}&ndash;{10 * e + 10}
+                </a>
+            ))
+        }
+    </section>
 </Main>
 
 <style lang="scss">
