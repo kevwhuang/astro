@@ -12,7 +12,13 @@ if (Astro.cookies.has('counter')) {
 }
 
 Astro.cookies.set('counter', String(counter));
-Astro.response.headers.set('X-My-Cookie', '12345');
+
+Astro.response.headers.set('access-control-allow-origin', 'https://k-astro.netlify.app');
+Astro.response.headers.set('content-security-policy', 'block-all-mixed-content');
+Astro.response.headers.set('permissions-policy', 'geolocation=(self), microphone=(self)');
+Astro.response.headers.set('referrer-policy', 'same-origin');
+Astro.response.headers.set('x-content-type-options', 'nosniff');
+Astro.response.headers.set('x-frame-options', 'sameorigin');
 ---
 
 <Main description="" title="">
