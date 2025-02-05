@@ -12,6 +12,7 @@ if (Astro.cookies.has('counter')) {
 }
 
 Astro.cookies.set('counter', String(counter));
+Astro.response.headers.set('X-My-Cookie', '12345');
 ---
 
 <Main description="" title="">

@@ -1,6 +1,6 @@
 {
     "name": "astro",
-    "version": "25.2.4",
+    "version": "25.2.5",
     "author": "Kevin Huang",
     "scripts": {
         "build": "astro build",
@@ -8,7 +8,6 @@
         "gen": "bunx @vite-pwa/assets-generator --preset minimal-2023 public/favicon.svg",
         "lint": "bun tsc & bun eslint",
         "start": "ntl dev",
-        "sync": "astro sync",
         "test": "playwright test"
     },
     "dependencies": {

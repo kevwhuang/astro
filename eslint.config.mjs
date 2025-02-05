@@ -8,9 +8,7 @@ const overrides = [
                 Submission: true,
             },
         },
-        rules: {
-            'stylistic/no-mixed-operators': 0,
-        },
+        rules: {},
     },
 ];
 
