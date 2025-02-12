@@ -11,7 +11,8 @@ import Main from '@/layouts/Main.astro';
 export const prerender = true;
 
 export const getStaticPaths = (async ({ paginate }) => {
-    const posts = (await getCollection('posts')).sort((a: any, b: any) => a.id - b.id);
+    const posts = await getCollection('posts');
+    posts.sort((a: Post, b: Post) => a.id.localeCompare(b.id));
 
     return paginate(posts, { pageSize: 10 });
 }) satisfies GetStaticPaths;
@@ -24,7 +25,7 @@ const { page } = Astro.props;
     title={`Page ${page.currentPage} | Blog`}
 >
     <section>
-        <h4>Page {page.currentPage}</h4>
+        <h4>PAGE {page.currentPage}</h4>
 
         {
             page.data.map((e: any) => (
@@ -57,7 +58,7 @@ const { page } = Astro.props;
 <style lang="scss">
     @use '@/styles/_root' as *;
 
-    @include section-blog;
+    @include section-menu;
 
     div {
         display: flex;

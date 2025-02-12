@@ -8,7 +8,7 @@ export const prerender = true;
 export async function getStaticPaths() {
     const posts = await getCollection('posts');
 
-    return posts.map((e: any) => ({
+    return posts.map((e: Post) => ({
         params: { id: e.id },
         props: { post: e },
     }));

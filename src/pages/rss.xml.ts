@@ -1,10 +1,12 @@
+import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import rss from '@astrojs/rss';
 
-async function GET(): Promise<Response> {
-    const posts = (await getCollection('posts')).sort((a: any, b: any) => a.id - b.id);
+const GET: APIRoute = async () => {
+    const posts = (await getCollection('posts'))
+        .sort((a: Post, b: Post) => a.id.localeCompare(b.id));
 
-    const items = posts.map((e: any) => ({
+    const items = posts.map((e: Post) => ({
         description: e.data.description,
         link: `/posts/${e.id}`,
         pubDate: e.data.pubDate,
@@ -19,6 +21,6 @@ async function GET(): Promise<Response> {
         stylesheet: '/pretty-feed-v3.xsl',
         title: 'Astro',
     });
-}
+};
 
 export { GET };

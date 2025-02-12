@@ -6,12 +6,13 @@ import Main from '@/layouts/Main.astro';
 export const prerender = true;
 
 export async function getStaticPaths() {
-    const posts = (await getCollection('posts')).sort((a: any, b: any) => a.id - b.id);
-    const tags = [...new Set(posts.map((e: any) => e.data.categories).flat())];
+    const posts = await getCollection('posts');
+    posts.sort((a: Post, b: Post) => a.id.localeCompare(b.id));
+    const tags = [...new Set(posts.map((e: Post) => e.data.categories).flat())];
 
     return tags.map(e => ({
         params: { tag: e },
-        props: { posts: posts.filter((f: any) => f.data.categories.includes(e)) },
+        props: { posts: posts.filter((f: Post) => f.data.categories.includes(e as string)) },
     }));
 }
 
@@ -23,7 +24,7 @@ const [{ tag }, { posts }] = [Astro.params, Astro.props];
         <h4>{(tag as string).toUpperCase()}</h4>
 
         {
-            posts.map((e: any) => (
+            posts.map((e: Post) => (
                 <a href={`/posts/${e.id}`}>
                     {e.data.title} [{e.data.author}]
                 </a>
@@ -35,5 +36,5 @@ const [{ tag }, { posts }] = [Astro.params, Astro.props];
 <style lang="scss">
     @use '@/styles/_root' as *;
 
-    @include section-blog;
+    @include section-menu;
 </style>

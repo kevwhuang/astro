@@ -13,6 +13,7 @@ const playwright = defineConfig({
         ['list'],
     ],
     testDir: 'src/tests',
+    testMatch: '*.{test,spec}.ts',
     timeout: 60000,
     use: {
         baseURL: 'https://localhost:5000',

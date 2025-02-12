@@ -1,0 +1,25 @@
+---
+import Main from '@/layouts/Main.astro';
+
+const endpoints = ['Text', 'JSON', 'HTML', 'Image', 'Audio', 'Video'];
+---
+
+<Main description="Index of API routes." title="API">
+    <section>
+        <h4>ROUTES</h4>
+
+        {
+            endpoints.map(e => (
+                <a href={`/api/${e.toLowerCase()}`} target="_blank">
+                    {e}
+                </a>
+            ))
+        }
+    </section>
+</Main>
+
+<style lang="scss">
+    @use '@/styles/_root' as *;
+
+    @include section-menu;
+</style>

@@ -1,6 +1,6 @@
 {
     "name": "astro",
-    "version": "25.2.11",
+    "version": "25.2.12",
     "author": "Kevin Huang",
     "scripts": {
         "build": "astro build",
@@ -11,11 +11,6 @@
         "test": "playwright test"
     },
     "dependencies": {
-        "react-hot-toast": "latest",
-        "react-loader-spinner": "latest"
-    },
-    "devDependencies": {
-        "autoprefixer": "latest",
         "@aephonics/config": "latest",
         "@astrojs/netlify": "latest",
         "@astrojs/react": "latest",
@@ -24,13 +19,19 @@
         "@netlify/edge-functions": "latest",
         "@playwright/test": "latest",
         "@sentry/astro": "latest",
+        "@supabase/supabase-js": "latest",
         "@vite-pwa/astro": "latest",
         "@vitejs/plugin-basic-ssl": "latest",
         "astro": "latest",
         "astro-compressor": "latest",
         "astro-robots-txt": "latest",
+        "autoprefixer": "latest",
         "netlify-cli": "latest",
         "react": "latest",
         "sass": "latest"
+    },
+    "devDependencies": {
+        "react-hot-toast": "latest",
+        "react-loader-spinner": "latest"
     }
 }

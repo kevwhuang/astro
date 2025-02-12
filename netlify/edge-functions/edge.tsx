@@ -2,7 +2,7 @@ import type { Config, Context } from '@netlify/edge-functions';
 import React from 'https://esm.sh/react';
 import { renderToReadableStream } from 'https://esm.sh/react-dom/server';
 
-const config: Config = { path: '/geo' };
+const config: Config = { path: '/edge' };
 
 async function handler(res: Response, context: Context): Promise<Response> {
     if (!React) return new Response;
@@ -33,7 +33,7 @@ async function handler(res: Response, context: Context): Promise<Response> {
     const jsx = (
         <html lang="en-us">
             <head>
-                <title>Geo</title>
+                <title>Edge</title>
                 <meta charSet="utf-8" />
                 <meta content="#fdf0d5" name="theme-color" />
                 <meta content="Kevin Huang" name="author" />

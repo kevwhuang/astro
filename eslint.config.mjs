@@ -7,6 +7,7 @@ const ignores = [
 ];
 
 const globals = [
+    'Post',
     'Role',
     'Submission',
 ];

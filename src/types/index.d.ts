@@ -4,6 +4,22 @@ declare module 'https://esm.sh/react-dom/server';
 
 type Role = 'button' | 'contentinfo' | 'heading' | 'img' | 'link' | 'navigation' | 'textbox';
 
+interface Post {
+    data: {
+        author: string;
+        categories: string[];
+        description: string;
+        image: {
+            alt: null | string;
+            src: null | string;
+        };
+        pubDate: Date;
+        title: string;
+    };
+    digest: string;
+    id: string;
+}
+
 interface Submission {
     id: number;
     producer: string;
