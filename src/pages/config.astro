@@ -1,0 +1,31 @@
+---
+import { Code } from 'astro:components';
+
+import Main from '@/layouts/Main.astro';
+
+const url = 'https://raw.githubusercontent.com/kevwhuang/astro/refs/heads/main/astro.config.mjs';
+const res = await fetch(url);
+const text = await res.text();
+---
+
+<Main description="Astro project config." title="Config">
+    <section>
+        <Code code={text} lang="js" />
+    </section>
+</Main>
+
+<style lang="scss">
+    pre {
+        font-family: monospace;
+        font-size: var(--f6);
+        padding: var(--f6);
+        white-space: pre;
+    }
+
+    @media screen and (max-width: 768px) {
+        pre {
+            font-size: var(--f7);
+            padding: var(--f7);
+        }
+    }
+</style>

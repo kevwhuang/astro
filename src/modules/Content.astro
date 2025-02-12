@@ -7,12 +7,11 @@ const { author, image, pubDate } = Astro.props;
 ---
 
 <section class="m-content">
-    <p class="m-content__top">{pubDate.toLocaleDateString()} &nbsp;&mdash;&nbsp; {author}</p>
+    <p>{pubDate.toLocaleDateString()} &nbsp;&mdash;&nbsp; {author}</p>
     <slot />
 
     <Image
         alt={image.src ? image.alt : 'Fallback image of a compass.'}
-        class="m-content__image"
         decoding="async"
         inferSize
         loading="lazy"
@@ -21,16 +20,14 @@ const { author, image, pubDate } = Astro.props;
 </section>
 
 <style lang="scss">
-    .m-content {
-        &__top {
-            opacity: 0.75;
-        }
+    p {
+        opacity: 0.75;
+    }
 
-        &__image {
-            height: 100%;
-            margin-top: var(--f6);
-            max-height: 1000px;
-            max-width: min(1000px, 100%);
-        }
+    img {
+        height: 100%;
+        margin-top: var(--f6);
+        max-height: 1000px;
+        max-width: min(1000px, 100%);
     }
 </style>
