@@ -1,0 +1,23 @@
+---
+import Picsum from '@/components/Picsum.astro';
+import Placeholder from '@/components/Placeholder.astro';
+---
+
+<section>
+    {
+        Array.from({ length: 10 }, () => (
+            <Picsum server:defer>
+                <Placeholder slot="fallback" />
+            </Picsum>
+        ))
+    }
+</section>
+
+<style lang="scss">
+    section {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--f6);
+        justify-content: center;
+    }
+</style>

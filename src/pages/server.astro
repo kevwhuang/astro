@@ -1,17 +1,8 @@
 ---
+import Gallery from '@/modules/Gallery.astro';
 import Main from '@/layouts/Main.astro';
 
 export const prerender = false;
-
-let counter = 0;
-
-if (Astro.cookies.has('counter')) {
-    const cookie = Astro.cookies.get('counter');
-    const value = cookie?.number();
-    if (value !== undefined && !isNaN(value)) counter = value + 1;
-}
-
-Astro.cookies.set('counter', String(counter));
 
 Astro.response.headers.set('access-control-allow-origin', 'https://k-astro.netlify.app');
 Astro.response.headers.set('content-security-policy', 'block-all-mixed-content');
@@ -21,8 +12,6 @@ Astro.response.headers.set('x-content-type-options', 'nosniff');
 Astro.response.headers.set('x-frame-options', 'sameorigin');
 ---
 
-<Main description="" title="">
-    <section>
-        <h2>{counter}</h2>
-    </section>
+<Main description="Demo of server-side rendering." title="Server">
+    <Gallery />
 </Main>

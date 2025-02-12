@@ -6,7 +6,7 @@ async function GET(): Promise<Response> {
 
     const items = posts.map((e: any) => ({
         description: e.data.description,
-        link: `/posts/${e.data.id}`,
+        link: `/posts/${e.id}`,
         pubDate: e.data.pubDate,
         title: e.data.title,
     }));

@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 
-import defaultPost from '@/assets/images/default_post.webp';
+import fallback from '@/assets/images/post_fallback.webp';
 
 const { author, image, pubDate } = Astro.props;
 ---
@@ -11,12 +11,12 @@ const { author, image, pubDate } = Astro.props;
     <slot />
 
     <Image
-        alt={image.src ? image.alt : 'A default image of a compass.'}
+        alt={image.src ? image.alt : 'Fallback image of a compass.'}
         class="m-content__image"
         decoding="async"
         inferSize
         loading="lazy"
-        src={image.src ?? defaultPost}
+        src={image.src ?? fallback}
     />
 </section>
 

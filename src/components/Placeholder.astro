@@ -1,0 +1,29 @@
+---
+import placeholder from '@/assets/images/gallery_placeholder.webp';
+
+const code = Astro.cookies.get('code')?.number() ?? 0;
+Astro.cookies.set('code', String((code + 1) % 26));
+---
+
+<div class="c-placeholder" style={{ backgroundImage: `url(${placeholder.src})` }}>
+    <h3>{String.fromCharCode(code + 65)}</h3>
+</div>
+
+<style lang="scss">
+    .c-placeholder {
+        align-items: center;
+        background-size: cover;
+        color: var(--c3);
+        display: flex;
+        height: 300px;
+        justify-content: center;
+        width: 300px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .c-placeholder {
+            height: 200px;
+            width: 200px;
+        }
+    }
+</style>

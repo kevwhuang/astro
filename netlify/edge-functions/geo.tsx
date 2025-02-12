@@ -35,6 +35,7 @@ async function handler(res: Response, context: Context): Promise<Response> {
             <head>
                 <title>Geo</title>
                 <meta charSet="utf-8" />
+                <meta content="#fdf0d5" name="theme-color" />
                 <meta content="Kevin Huang" name="author" />
                 <meta content="ie=edge" httpEquiv="x-ua-compatible" />
                 <meta content="noindex" name="robots" />
@@ -43,9 +44,14 @@ async function handler(res: Response, context: Context): Promise<Response> {
 
             <body style={style.body}>
                 <main style={style.main}>
-                    <a href="/" style={style.a}>Home</a>
-                    <p style={style.p}>{geo.latitude}, {geo.longitude}</p>
-                    <p style={style.p}>{geo.city}, {geo.subdivision?.name}, {geo.country?.name}</p>
+                    <section>
+                        <a href="/" style={style.a}>Home</a>
+                        <p style={style.p}>{geo.latitude}, {geo.longitude}</p>
+
+                        <p style={style.p}>
+                            {geo.city}, {geo.subdivision?.name}, {geo.country?.name}
+                        </p>
+                    </section>
                 </main>
             </body>
         </html>

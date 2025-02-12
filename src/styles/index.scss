@@ -32,6 +32,11 @@ a {
     }
 }
 
+body {
+    background: var(--c1);
+    font-family: 'sf pro display', 'helvetica neue', sans-serif;
+}
+
 h1 {
     font-size: var(--f1);
 }

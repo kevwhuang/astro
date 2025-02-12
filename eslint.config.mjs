@@ -1,21 +1,22 @@
 import { eslint } from '@aephonics/config';
 
-const overrides = [
-    {
-        files: ['**/*.{ts,tsx,astro}'],
-        languageOptions: {
-            globals: {
-                Submission: true,
-            },
-        },
-        rules: {},
-    },
-];
-
 const ignores = [
     '.astro/**',
     '.netlify/**',
     'dist/**',
+];
+
+const globals = [
+    'Role',
+    'Submission',
+];
+
+const overrides = [
+    {
+        files: ['**/*.{ts,tsx,astro}'],
+        languageOptions: { globals: Object.fromEntries(globals.map(e => [e, true])) },
+        rules: {},
+    },
 ];
 
 eslint.push(...overrides);

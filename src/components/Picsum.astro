@@ -1,0 +1,23 @@
+<img
+    alt="Random image."
+    class="c-picsum"
+    src={`https://picsum.photos/300.webp?random=${Math.random()}`}
+/>
+
+<style lang="scss">
+    .c-picsum {
+        height: 300px;
+        width: 300px;
+
+        &:hover {
+            scale: 1.05;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .c-picsum {
+            height: 200px;
+            width: 200px;
+        }
+    }
+</style>
