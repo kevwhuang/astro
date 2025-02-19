@@ -1,13 +1,20 @@
 ---
+import Counter from '@/components/Counter';
 import Social from '@/components/Social.astro';
 import SunMoon from '@/assets/icons/SunMoon.svg';
 ---
 
 <footer>
-    <Social domain="github" handle="withastro" />
-    <Social domain="youtube" handle="astrodotbuild" />
-    <Social domain="twitter" handle="astrodotbuild" />
-    <SunMoon title="Toggle theme" />
+    <Counter client:only="react">
+        <p slot="fallback"></p>
+    </Counter>
+
+    <div>
+        <Social domain="github" handle="withastro" />
+        <Social domain="youtube" handle="astrodotbuild" />
+        <Social domain="twitter" handle="astrodotbuild" />
+        <SunMoon title="Toggle theme" />
+    </div>
 </footer>
 
 <style lang="scss">
@@ -15,9 +22,14 @@ import SunMoon from '@/assets/icons/SunMoon.svg';
         align-items: center;
         border-top: 2px solid;
         display: flex;
-        gap: var(--f7);
-        justify-content: end;
+        justify-content: space-between;
         padding: var(--f7);
+    }
+
+    div {
+        align-items: center;
+        display: flex;
+        gap: var(--f7);
     }
 
     @media screen and (max-width: 480px) {
@@ -28,8 +40,10 @@ import SunMoon from '@/assets/icons/SunMoon.svg';
 </style>
 
 <script>
+    import { counter, user } from '@/store';
+
     document.querySelector('footer svg')?.addEventListener('click', () => {
-        const theme = document.documentElement.getAttribute('data-theme');
-        document.documentElement.setAttribute('data-theme', theme === 'light' ? 'dark' : 'light');
+        counter.set(counter.get() + 1);
+        user.setKey('theme', user.get().theme === 'light' ? 'dark' : 'light');
     });
 </script>

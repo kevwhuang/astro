@@ -9,12 +9,12 @@ test.beforeEach(async ({ page }) => {
 test('page', async ({ page }) => {
     await expect(page).toHaveTitle(/./u);
     await exists(page, 'navigation');
-    await expect(page.locator('css=main>section')).toHaveCount(1);
+    await expect(page.locator('main>section')).toHaveCount(1);
     await nonexists(page, 'contentinfo');
 });
 
 test('section 1', async ({ page }) => {
-    const text = await page.locator('css=main>section').first().textContent();
+    const text = await page.locator('main>section').first().textContent();
     expect(text).toBeTruthy();
-    await expect(page.locator('css=main>section>img')).toBeVisible();
+    await expect(page.locator('main>section>img')).toBeVisible();
 });

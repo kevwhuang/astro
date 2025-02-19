@@ -1,0 +1,9 @@
+.c-counter {
+    opacity: 0.5;
+}
+
+@media screen and (max-width: 480px) {
+    .c-counter {
+        display: none;
+    }
+}

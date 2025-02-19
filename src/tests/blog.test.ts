@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
 test('page', async ({ page }) => {
     await expect(page).toHaveTitle('Blog');
     await exists(page, 'navigation');
-    await expect(page.locator('css=main>section')).toHaveCount(2);
+    await expect(page.locator('main>section')).toHaveCount(2);
     await exists(page, 'contentinfo');
 });
 

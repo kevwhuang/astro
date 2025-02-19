@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
 test('page', async ({ page }) => {
     await expect(page).toHaveTitle('React');
     await exists(page, 'navigation');
-    await expect(page.locator('css=main>astro-island>section')).toHaveCount(1);
+    await expect(page.locator('main>astro-island>section')).toHaveCount(1);
     await exists(page, 'contentinfo');
 });
 

@@ -1,4 +1,4 @@
 telemetry = false
 
 [test]
-root = 'supabase/tests'
+root = 'supabase'

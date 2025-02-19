@@ -10,6 +10,7 @@ const globals = [
     'Post',
     'Role',
     'Submission',
+    'User',
 ];
 
 const overrides = [

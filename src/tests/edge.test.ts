@@ -8,6 +8,6 @@ test.beforeEach(async ({ page }) => {
 
 test('page', async ({ page }) => {
     await expect(page).toHaveTitle('Edge');
-    await expect(page.locator('css=main>section')).toHaveCount(1);
+    await expect(page.locator('main>section')).toHaveCount(1);
     await exists(page, 'link', 'home');
 });

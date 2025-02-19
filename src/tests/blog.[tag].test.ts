@@ -8,7 +8,7 @@ test.beforeEach(async ({ page }) => {
     await page.goto('/blog');
 
     const elements = await page
-        .locator('css=main>section')
+        .locator('main>section')
         .first()
         .getByRole('link')
         .all();
@@ -23,7 +23,7 @@ test('page', async ({ page }) => {
     if (!target) return;
     await expect(page).toHaveTitle(`${target} | Blog`);
     await exists(page, 'navigation');
-    await expect(page.locator('css=main>section')).toHaveCount(1);
+    await expect(page.locator('main>section')).toHaveCount(1);
     await exists(page, 'contentinfo');
 });
 
@@ -32,7 +32,7 @@ test('section 1', async ({ page }) => {
     await exists(page, 'heading', target);
 
     const elements = await page
-        .locator('css=main>section')
+        .locator('main>section')
         .first()
         .getByRole('link')
         .all();

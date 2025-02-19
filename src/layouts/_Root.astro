@@ -11,7 +11,7 @@ const { description, title } = Astro.props;
 ---
 
 <!doctype html>
-<html data-theme="dark" lang="en-us">
+<html lang="en-us">
     <head>
         <title>{title}</title>
         <meta charset="utf-8" />
@@ -48,3 +48,11 @@ const { description, title } = Astro.props;
         <slot />
     </body>
 </html>
+
+<script>
+    import { user } from '@/store';
+
+    user.subscribe(({ theme }: Partial<User>) => {
+        document.documentElement.setAttribute('data-theme', theme!);
+    });
+</script>
