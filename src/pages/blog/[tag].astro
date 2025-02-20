@@ -21,7 +21,9 @@ const [{ tag }, { posts }] = [Astro.params, Astro.props];
 
 <Main description={`Posts tagged with "${tag}".`} title={`${tag} | Blog`}>
     <section>
-        <h4>{(tag as string).toUpperCase()}</h4>
+        <h4 class:list={['animate__animated', 'animate__lightSpeedInLeft']}>
+            {(tag as string).toUpperCase()}
+        </h4>
 
         {
             posts.map((e: Post) => (

@@ -11,12 +11,12 @@ const pages = Array.from({ length: Math.floor(posts.length / 10) }, (_, i) => i)
 
 <Main description="Index of blog posts." title="Blog">
     <section>
-        <h4>TAGS</h4>
+        <h4 class:list={['animate__animated', 'animate__lightSpeedInLeft']}>TAGS</h4>
         {tags.map(e => <a href={`/blog/${e}`}>{(e as string).toUpperCase()}</a>)}
     </section>
 
     <section>
-        <h4>POSTS</h4>
+        <h4 class:list={['animate__animated', 'animate__lightSpeedInLeft']}>POSTS</h4>
 
         {
             pages.map(e => (
