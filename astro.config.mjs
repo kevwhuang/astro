@@ -8,6 +8,7 @@ import robots from 'astro-robots-txt';
 import sentry from '@sentry/astro';
 import sitemap from '@astrojs/sitemap';
 import ssl from '@vitejs/plugin-basic-ssl';
+import tailwind from '@tailwindcss/vite';
 
 const env = loadEnv('production', process.cwd(), '');
 
@@ -135,7 +136,7 @@ const astro = defineConfig({
     site: 'https://k-astro.netlify.app',
     srcDir: 'src',
     trailingSlash: 'ignore',
-    vite: {},
+    vite: { plugins: [tailwind()] },
 });
 
 export default astro;

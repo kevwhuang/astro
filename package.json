@@ -1,6 +1,6 @@
 {
     "name": "astro",
-    "version": "25.2.19",
+    "version": "25.2.20",
     "author": "Kevin Huang",
     "scripts": {
         "build": "astro build",
@@ -22,6 +22,7 @@
         "@playwright/test": "latest",
         "@sentry/astro": "latest",
         "@supabase/supabase-js": "latest",
+        "@tailwindcss/vite": "latest",
         "@vite-pwa/astro": "latest",
         "@vitejs/plugin-basic-ssl": "latest",
         "animate.css": "latest",
@@ -31,7 +32,8 @@
         "autoprefixer": "latest",
         "netlify-cli": "latest",
         "react": "latest",
-        "sass": "latest"
+        "sass": "latest",
+        "tailwindcss": "latest"
     },
     "devDependencies": {
         "react-hot-toast": "latest",
