@@ -3,13 +3,6 @@ import Gallery from '@/modules/Gallery.astro';
 import Main from '@/layouts/Main.astro';
 
 export const prerender = false;
-
-Astro.response.headers.set('access-control-allow-origin', 'https://k-astro.netlify.app');
-Astro.response.headers.set('content-security-policy', 'block-all-mixed-content');
-Astro.response.headers.set('permissions-policy', 'geolocation=(self), microphone=(self)');
-Astro.response.headers.set('referrer-policy', 'same-origin');
-Astro.response.headers.set('x-content-type-options', 'nosniff');
-Astro.response.headers.set('x-frame-options', 'sameorigin');
 ---
 
 <Main description="Demo of server-side rendering." title="Server">
