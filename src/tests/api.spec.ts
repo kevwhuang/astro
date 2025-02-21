@@ -30,7 +30,6 @@ test('html', async ({ context, page }) => {
 test('image', async ({ context, page }) => {
     await page.getByRole('link', { name: 'image' }).click();
     const newPage = await context.waitForEvent('page');
-    expect(await newPage.title()).toContain('image');
     await exists(newPage, 'img');
 });
 

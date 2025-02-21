@@ -1,4 +1,6 @@
 ---
+import { slide } from 'astro:transitions';
+
 import Content from '@/modules/Content.astro';
 import Root from '@/layouts/_Root.astro';
 
@@ -6,7 +8,7 @@ const { author, description, image, pubDate, title } = Astro.props.post.data;
 ---
 
 <Root description={description} title={title}>
-    <main>
+    <main transition:animate={slide({ duration: '1s' })}>
         <Content author={author} image={image} pubDate={pubDate}>
             <slot />
         </Content>

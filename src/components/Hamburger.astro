@@ -31,9 +31,11 @@
 </style>
 
 <script>
-    document.querySelector('.c-hamburger')?.addEventListener('click', () => {
-        for (const e of document.querySelectorAll('nav div a')) {
-            e.classList.toggle('open');
-        }
+    document.addEventListener('astro:page-load', () => {
+        document.querySelector('.c-hamburger')?.addEventListener('click', () => {
+            for (const e of document.querySelectorAll('nav div a')) {
+                e.classList.toggle('open');
+            }
+        });
     });
 </script>

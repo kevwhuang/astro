@@ -1,0 +1,18 @@
+---
+import Main from '@/layouts/Main.astro';
+
+const pages = ['config', 'edge', 'es', 'rss.xml', 'test'];
+---
+
+<Main description="Index of miscellaneous pages." title="Misc">
+    <section>
+        <h4 class:list={['animate__animated', 'animate__lightSpeedInLeft']}>PAGES</h4>
+        {pages.map(e => <a href={`/${e}`}>{e.toUpperCase()}</a>)}
+    </section>
+</Main>
+
+<style lang="scss">
+    @use '@/styles/_root' as *;
+
+    @include section-menu;
+</style>

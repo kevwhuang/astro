@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 
 import { exists, nonexists } from '@/utils/_all';
 
-const links = ['home', 'api', 'blog', 'react', 'server', 'config', 'edge'];
+const links = ['home', 'api', 'blog', 'react', 'server', 'misc'];
 
 test.beforeEach(async ({ page }) => {
     await page.goto('/');

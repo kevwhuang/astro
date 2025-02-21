@@ -5,7 +5,7 @@ import SunMoon from '@/assets/icons/SunMoon.svg';
 ---
 
 <footer>
-    <Counter client:only="react">
+    <Counter client:only="react" transition:persist>
         <p slot="fallback"></p>
     </Counter>
 
@@ -42,8 +42,10 @@ import SunMoon from '@/assets/icons/SunMoon.svg';
 <script>
     import { counter, user } from '@/store';
 
-    document.querySelector('footer svg')?.addEventListener('click', () => {
-        counter.set(counter.get() + 1);
-        user.setKey('theme', user.get().theme === 'light' ? 'dark' : 'light');
+    document.addEventListener('astro:page-load', () => {
+        document.querySelector('footer svg')?.addEventListener('click', () => {
+            counter.set(counter.get() + 1);
+            user.setKey('theme', user.get().theme === 'light' ? 'dark' : 'light');
+        });
     });
 </script>

@@ -96,8 +96,8 @@ const astro = defineConfig({
     },
     i18n: {
         defaultLocale: 'en',
-        fallback: {},
-        locales: ['en'],
+        fallback: { es: 'en' },
+        locales: ['en', 'es'],
         routing: {
             fallbackType: 'rewrite',
             prefixDefaultLocale: false,

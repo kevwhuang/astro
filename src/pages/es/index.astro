@@ -1,0 +1,15 @@
+---
+import Main from '@/layouts/Main.astro';
+---
+
+<Main description="Bienvenido a mi primer sitio web de Astro." title="Astro">
+    <section>
+        <h1 class:list={['animate__animated', 'animate__flipInY']}>Hola Astro</h1>
+    </section>
+</Main>
+
+<style lang="scss">
+    @use '@/styles/_root' as *;
+
+    @include h1;
+</style>

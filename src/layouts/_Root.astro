@@ -1,4 +1,6 @@
 ---
+import { ClientRouter } from 'astro:transitions';
+
 import Navbar from '@/modules/Navbar.astro';
 
 import '@/styles/rectify.scss';
@@ -44,6 +46,8 @@ const { description, title } = Astro.props;
             title="Astro"
             type="application/rss+xml"
         />
+
+        <ClientRouter />
     </head>
 
     <body>
@@ -55,7 +59,15 @@ const { description, title } = Astro.props;
 <script>
     import { user } from '@/store';
 
-    user.subscribe(({ theme }: Partial<User>) => {
-        document.documentElement.setAttribute('data-theme', theme!);
+    document.addEventListener('astro:after-swap', () => {
+        user.subscribe(({ theme }: Partial<User>) => {
+            document.documentElement.setAttribute('data-theme', theme!);
+        });
+    });
+
+    document.addEventListener('astro:page-load', () => {
+        user.subscribe(({ theme }: Partial<User>) => {
+            document.documentElement.setAttribute('data-theme', theme!);
+        });
     });
 </script>
