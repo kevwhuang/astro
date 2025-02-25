@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 
 import { exists } from '@/utils/_all';
 
-let target = false;
+let tgt = false;
 
 test.beforeEach(async ({ page }) => {
     await page.goto('/blog');
@@ -14,12 +14,12 @@ test.beforeEach(async ({ page }) => {
         .all();
 
     if (!elements[0]) return;
-    target = true;
+    tgt = true;
     await page.goto('/blog/1');
 });
 
 test('page', async ({ page }) => {
-    if (!target) return;
+    if (!tgt) return;
     await expect(page).toHaveTitle('Page 1 | Blog');
     await exists(page, 'navigation');
     await expect(page.locator('main>section')).toHaveCount(1);

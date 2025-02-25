@@ -1,13 +1,13 @@
 ---
 import Main from '@/layouts/Main.astro';
 
-const pages = ['config', 'edge', 'es', 'rss.xml', 'test'];
+const pages = ['config', 'dashboard', 'edge', 'es', 'rss.xml', 'sign in', 'sign out', 'test'];
 ---
 
 <Main description="Index of miscellaneous pages." title="Misc">
     <section>
         <h4 class:list={['animate__animated', 'animate__lightSpeedInLeft']}>PAGES</h4>
-        {pages.map(e => <a href={`/${e}`}>{e.toUpperCase()}</a>)}
+        {pages.map(e => <a href={`/${e.replaceAll(' ', '')}`}>{e.toUpperCase()}</a>)}
     </section>
 </Main>
 

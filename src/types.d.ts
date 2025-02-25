@@ -1,12 +1,12 @@
+declare module 'astro:actions';
 declare module 'astro:content';
+declare module 'astro:schema';
 declare module 'https://esm.sh/react';
 declare module 'https://esm.sh/react-dom/server';
 
 type Role = 'button' | 'contentinfo' | 'heading' | 'img' | 'link' | 'navigation' | 'textbox';
 
-type User = {
-    theme: 'dark' | 'light';
-};
+type User = { theme: 'dark' | 'light' };
 
 interface Post {
     data: {

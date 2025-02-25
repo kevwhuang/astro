@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import rss from '@astrojs/rss';
 
-const GET: APIRoute = async () => {
+export const GET: APIRoute = async () => {
     const posts = (await getCollection('posts'))
         .sort((a: Post, b: Post) => a.id.localeCompare(b.id));
 
@@ -22,5 +22,3 @@ const GET: APIRoute = async () => {
         title: 'Astro',
     });
 };
-
-export { GET };

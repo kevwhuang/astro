@@ -20,12 +20,12 @@ async function load(payload: string | null, setSubmissions: Dispatch): Promise<v
         method: 'post',
     });
 
-    const data = await res.json();
+    const json = await res.json();
 
-    if (Array.isArray(data)) {
-        data.sort((a, b) => b.id - a.id);
-        setSubmissions(data);
-    } else if ('id' in data) {
+    if (Array.isArray(json)) {
+        json.sort((a, b) => b.id - a.id);
+        setSubmissions(json);
+    } else if ('id' in json) {
         await load(null, setSubmissions);
     } else {
         return Promise.reject(Error());
@@ -45,6 +45,7 @@ function Form(): React.ReactElement {
 
     async function handleSubmit(e: React.FormEvent): Promise<void> {
         e.preventDefault();
+
         const payload = input;
         inputRef.current!.value = '';
         setInput('');
@@ -60,14 +61,14 @@ function Form(): React.ReactElement {
 
     if (submissions.length === 0) {
         return (
-            <section className="m-form">
+            <section className="m-form--1">
                 <FidgetSpinner />
             </section>
         );
     }
 
     return (
-        <section className="m-form">
+        <section className="m-form--2">
             <Toaster />
 
             <form onSubmit={e => handleSubmit(e) as unknown}>
@@ -83,7 +84,7 @@ function Form(): React.ReactElement {
 
             {
                 submissions.map(e => (
-                    <div key={e.id} className="m-form__card">
+                    <div key={e.id} className="m-form--2__card">
                         <h4>{e.id}</h4>
                         <p>{e.producer}</p>
                         <a href={e.stream} rel="noreferrer" target="_blank">{e.title}</a>

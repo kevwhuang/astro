@@ -5,7 +5,7 @@ export const prerender = false;
 export const GET: APIRoute = async () => {
     const url = `${import.meta.env.NETLIFY_BASE}${import.meta.env.PUBLIC_ENDPOINT}`;
     const res = await fetch(url);
-    const data = await res.json();
+    const json = await res.json();
 
-    return new Response(JSON.stringify(data));
+    return new Response(JSON.stringify(json));
 };

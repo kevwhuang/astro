@@ -1,4 +1,4 @@
-.m-form {
+.m-form--1 {
     svg {
         cursor: default;
         height: var(--f1);
@@ -7,7 +7,7 @@
     }
 }
 
-.m-form {
+.m-form--2 {
     form {
         align-items: center;
         display: grid;
@@ -66,12 +66,14 @@
 }
 
 @media screen and (max-width: 768px) {
-    .m-form {
+    .m-form--1 {
         svg {
             height: var(--f2);
             width: var(--f2);
         }
+    }
 
+    .m-form--2 {
         form {
             margin-bottom: var(--f7);
         }

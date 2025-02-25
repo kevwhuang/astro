@@ -17,7 +17,6 @@ const overrides = [
     {
         files: ['**/*.{ts,tsx,astro}'],
         languageOptions: { globals: Object.fromEntries(globals.map(e => [e, true])) },
-        rules: {},
     },
 ];
 

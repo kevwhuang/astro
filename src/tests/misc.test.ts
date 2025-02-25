@@ -16,8 +16,11 @@ test('page', async ({ page }) => {
 test('section 1', async ({ page }) => {
     await exists(page, 'heading', 'pages');
     await exists(page, 'link', 'config');
+    await exists(page, 'link', 'dashboard');
     await exists(page, 'link', 'edge');
     await expect(page.getByText(/^es$/iu)).toBeVisible();
     await exists(page, 'link', 'rss.xml');
+    await exists(page, 'link', 'sign in');
+    await exists(page, 'link', 'sign out');
     await exists(page, 'link', 'test');
 });

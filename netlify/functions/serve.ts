@@ -8,9 +8,9 @@ async function handler(event: HandlerEvent): Promise<HandlerResponse> {
     try {
         if (method === 'get') {
             const res = await fetch(url);
-            const data = await res.json();
+            const json = await res.json();
 
-            return { body: JSON.stringify(data), statusCode };
+            return { body: JSON.stringify(json), statusCode };
         } else if (method === 'post') {
             const ops = {
                 body: JSON.stringify(payload),
@@ -19,13 +19,11 @@ async function handler(event: HandlerEvent): Promise<HandlerResponse> {
             };
 
             const res = await fetch(url, ops);
-            const data = await res.json();
+            const json = await res.json();
 
-            return { body: JSON.stringify(data), statusCode };
+            return { body: JSON.stringify(json), statusCode };
         }
-    } catch {
-        return { body: '', statusCode };
-    }
+    } catch { }
 
     return { body: '', statusCode };
 }

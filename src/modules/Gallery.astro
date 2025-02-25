@@ -3,7 +3,7 @@ import Picsum from '@/components/Picsum.astro';
 import Placeholder from '@/components/Placeholder.astro';
 ---
 
-<section>
+<section class="m-gallery">
     {
         Array.from({ length: 10 }, () => (
             <Picsum server:defer>
@@ -14,7 +14,7 @@ import Placeholder from '@/components/Placeholder.astro';
 </section>
 
 <style lang="scss">
-    section {
+    .m-gallery {
         display: flex;
         flex-wrap: wrap;
         gap: var(--f6);
