@@ -1,6 +1,6 @@
 import type { MiddlewareHandler } from 'astro';
 
-export const onRequest: MiddlewareHandler = async (context, next) => {
+const onRequest: MiddlewareHandler = async (context, next) => {
     const res = await next();
     if (context.isPrerendered) return res;
 
@@ -13,3 +13,5 @@ export const onRequest: MiddlewareHandler = async (context, next) => {
 
     return res;
 };
+
+export { onRequest };

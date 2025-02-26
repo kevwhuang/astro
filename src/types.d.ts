@@ -1,6 +1,5 @@
 declare module 'astro:actions';
 declare module 'astro:content';
-declare module 'astro:schema';
 declare module 'https://esm.sh/react';
 declare module 'https://esm.sh/react-dom/server';
 

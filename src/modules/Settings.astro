@@ -1,0 +1,171 @@
+---
+const { email } = Astro.props;
+---
+
+<section class="m-settings">
+    <form>
+        <div>
+            <label for="email">Email</label>
+            <input aria-label="user email" disabled id="email" value={email} />
+        </div>
+
+        <div>
+            <label for="password">New Password</label>
+
+            <input
+                aria-label="enter new password"
+                id="password"
+                maxlength="64"
+                minlength="8"
+                name="password"
+                required
+                type="password"
+            />
+        </div>
+
+        <div>
+            <p>&nbsp;</p>
+            <button type="submit">Save</button>
+        </div>
+    </form>
+</section>
+
+<style lang="scss">
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: var(--f6);
+        margin: auto;
+        max-width: 800px;
+
+        div {
+            display: grid;
+            gap: var(--f7);
+
+            &:not(:last-of-type) {
+                grid-template-columns: 170px 1fr;
+
+                label {
+                    align-content: center;
+                    font-size: var(--f6);
+                    opacity: 0.8;
+                    text-align: right;
+
+                    &[for='email'] {
+                        cursor: default;
+                    }
+
+                    &[for='password'] {
+                        &:hover {
+                            opacity: 1;
+                        }
+                    }
+                }
+
+                input {
+                    border-radius: var(--f9);
+                    font-family: monospace;
+                    font-size: var(--f6);
+                    padding: var(--f8) var(--f7);
+                    width: 100%;
+
+                    &:disabled {
+                        opacity: 0.5;
+                    }
+
+                    &:focus {
+                        border-color: var(--c5);
+                    }
+                }
+            }
+
+            &:last-of-type {
+                grid-template-columns: 1fr max-content;
+
+                p {
+                    align-content: center;
+                    color: var(--c2);
+                    line-height: 1.05;
+                    text-align: right;
+                }
+
+                button {
+                    background: var(--c5);
+                    border: none;
+                    border-radius: var(--f9);
+                    color: var(--c1);
+                    font-size: var(--f6);
+                    padding: var(--f8) var(--f6);
+
+                    &:disabled {
+                        opacity: 0.5;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        form {
+            gap: var(--f7);
+
+            div {
+                gap: var(--f8);
+
+                &:not(:last-of-type) {
+                    grid-template-columns: 100px 1fr;
+
+                    label {
+                        font-size: var(--f7);
+                    }
+
+                    input {
+                        font-size: var(--f7);
+                        padding: var(--f9) var(--f8);
+                    }
+                }
+
+                &:last-of-type {
+                    button {
+                        font-size: var(--f7);
+                        padding: var(--f9) var(--f8);
+                    }
+                }
+            }
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('astro:page-load', () => {
+        const disable = () => elements.forEach(e => e.setAttribute('disabled', ''));
+        const enable = () => elements.forEach(e => e.removeAttribute('disabled'));
+
+        const elements = document.querySelectorAll('#password, button[type="submit"]');
+        const p = document.querySelector('.m-settings form p') as HTMLParagraphElement;
+
+        document
+            .querySelector<HTMLFormElement>('.m-settings form')
+            ?.addEventListener('submit', async e => {
+                e.preventDefault();
+                const form = new FormData(e.target as HTMLFormElement);
+                disable();
+
+                const res = await fetch('/api/auth/update', { body: form, method: 'PATCH' });
+
+                if (res.status === 422) {
+                    if ((await res.text()) === 'same_password') {
+                        p.innerText = 'Please choose a different password.';
+                    } else {
+                        p.innerText = 'Password must contain at least one letter and one digit.';
+                    }
+                } else if (res.status === 500) {
+                    p.innerText = 'An error has occurred.';
+                } else {
+                    p.innerText = 'Your password has been updated.';
+                }
+
+                enable();
+            });
+    });
+</script>

@@ -1,0 +1,18 @@
+---
+import { actions } from 'astro:actions';
+
+import Main from '@/layouts/Main.astro';
+
+export const prerender = false;
+
+const { data: float } = await Astro.callAction(actions.getRandomFloat, {});
+---
+
+<Main description="A random floating point number." title="Random">
+    <section
+        class:list={['font-bold', 'underline', 'uppercase']}
+        style={{ 'text-align': 'center' }}
+    >
+        <h6>{float}</h6>
+    </section>
+</Main>

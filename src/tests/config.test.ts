@@ -14,5 +14,5 @@ test('page', async ({ page }) => {
 });
 
 test('section 1', async ({ page }) => {
-    await expect(page.locator('code')).toBeVisible();
+    await expect(page.locator('main>section>pre>code')).toBeVisible();
 });

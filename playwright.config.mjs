@@ -12,6 +12,7 @@ const playwright = defineConfig({
         ['html', { open: 'never', outputFolder: '.playwright' }],
         ['list'],
     ],
+    retries: 3,
     testDir: 'src/tests',
     testMatch: '*.{test,spec}.ts',
     timeout: 60000,

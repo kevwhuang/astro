@@ -1,0 +1,33 @@
+---
+import Main from '@/layouts/Main.astro';
+import Settings from '@/modules/Settings.astro';
+
+import supabase from '@/supabase';
+
+export const prerender = false;
+
+const accessToken = Astro.cookies.get('sb-access-token');
+const refreshToken = Astro.cookies.get('sb-refresh-token');
+
+if (!accessToken || !refreshToken) return Astro.redirect('/signin');
+
+let session = null;
+
+try {
+    session ??= await supabase.auth.setSession({
+        access_token: accessToken.value,
+        refresh_token: refreshToken.value,
+    });
+
+    if (session.error) throw Error;
+} catch {
+    Astro.cookies.delete('sb-access-token', { path: '/' });
+    Astro.cookies.delete('sb-refresh-token', { path: '/' });
+
+    return Astro.redirect('/signin');
+}
+---
+
+<Main description="Manage user settings." title="Dashboard">
+    <Settings email={session.data.user?.email} />
+</Main>

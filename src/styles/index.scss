@@ -17,7 +17,7 @@
 
 * {
     transition-duration: 200ms;
-    transition-property: color, font-size, gap, height, margin, opacity, padding, scale, width;
+    transition-property: border-color, color, font-size, gap, height, margin, opacity, padding, scale, width;
 }
 
 a {
@@ -67,7 +67,7 @@ main {
     section {
         margin-bottom: var(--f5);
 
-        &:last-child {
+        &:last-of-type {
             margin-bottom: 0;
         }
     }

@@ -1,0 +1,14 @@
+---
+import Credentials from '@/modules/Credentials.astro';
+import Main from '@/layouts/Main.astro';
+
+export const prerender = false;
+
+if (Astro.cookies.has('sb-access-token') && Astro.cookies.has('sb-refresh-token')) {
+    return Astro.redirect('/dashboard');
+}
+---
+
+<Main description="User sign in page." title="Sign In">
+    <Credentials />
+</Main>
