@@ -68,7 +68,7 @@ const integrations = [
 
 const astro = defineConfig({
     adapter: netlify({
-        cacheOnDemandPages: true,
+        cacheOnDemandPages: false,
         edgeMiddleware: true,
         imageCDN: false,
     }),

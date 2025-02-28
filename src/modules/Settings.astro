@@ -3,7 +3,7 @@ const { email } = Astro.props;
 ---
 
 <section class="m-settings">
-    <form>
+    <form data-astro-reload>
         <div>
             <label for="email">Email</label>
             <input aria-label="user email" disabled id="email" value={email} />
